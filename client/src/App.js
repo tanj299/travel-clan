@@ -34,6 +34,7 @@ const App = () => {
                     <Switch>
                         <Route path = "/" exact component = { login } />
                         <Route path = "/signup" component = { signup } />
+                        <Route path = "/alltrips" component = { allTrips } />
                         <Route path = "/alltrips/user/:id" component = { allTrips } />
                         <Route path = "/singletrip/user/:id" component = { singleTrip } />
                         <Route path = "*" component = { notFound } />

@@ -1,16 +1,20 @@
-    import React, { Component } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
 export default class home extends Component {
     constructor (props) {
         super(props); 
         this.state = {
-            firstName: "",
-            lastName: "",
             email: "",
+            password: "",
 
             displayErrorMessage: false 
         }
+    }
+
+
+    validateForm = () => {
+        return this.state.email.length > 0 && this.state.password.length > 0;
     }
 
     handleInputChange = (event) => {
@@ -30,7 +34,7 @@ export default class home extends Component {
         return (
             <div className = "login-wrapper">
                 <div className = "login-form">
-                    <div className = "edit-form">
+                    {/* <div className = "edit-form">
                         <label className = "login-label" htmlFor = "firstName">
                             First Name
                         </label>
@@ -42,13 +46,20 @@ export default class home extends Component {
                             Last Name
                         </label>
                         <input type = "text" name = "lastName" onChange = {this.handleInputChange} />
-                    </div>  
+                    </div>   */}
 
                     <div className = "edit-form">
                         <label className = "login-label" htmlFor = "email">
-                            Email
+                            Username 
                         </label>
-                        <input type = "text" name = "email" onChange = { this.handleInputChange } />
+                        <input type="text" name="email" placeholder = "Your email" onChange = { this.handleInputChange } />
+                    </div>
+
+                    <div className = "edit-form"> 
+                        <label className = "login-label" htmlFor = "password">
+                            Password
+                        </label>
+                        <input type = "text" name = "password" placeholder = "Enter password" onChange = { this.handleInputChange} />
                     </div>
 
                     <div className="button-wrapper">
