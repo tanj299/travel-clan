@@ -12,8 +12,9 @@ import Footer from './components/partials/Footer.js';
 import './App.css';
 
 // import components 
-import home from './components/home';
+import home from './components/login';
 import allTrips from './components/allTrips'
+import login from './components/login'
 // // import allUsers from './components/allUsersChat' 
 import singleTrip from './components/singleTrip'
 // // import singleUser from './components/singleUser'
@@ -31,7 +32,7 @@ const App = () => {
                     <div className="page-body">      
 
                     <Switch>
-                        <Route path = "/" exact component = { home } />
+                        <Route path = "/" exact component = { login } />
                         <Route path = "/signup" component = { signup } />
                         <Route path = "/alltrips/user/:id" component = { allTrips } />
                         <Route path = "/singletrip/user/:id" component = { singleTrip } />
