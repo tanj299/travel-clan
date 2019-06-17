@@ -19,7 +19,7 @@ import singleTrip from './components/singleTrip'
 // // import singleUser from './components/singleUser'
 // // import selectedChatRoom from './components/selectedChatRoom';
 import signup from './components/signup'
-import notFound from './components/notFound';
+// import notFound from './components/notFound';
 
 const App = () => { 
     return (
@@ -36,7 +36,7 @@ const App = () => {
                         <Route path = "/alltrips" component = { allTrips } />
                         <Route path = "/alltrips/user/:id" component = { allTrips } />
                         <Route path = "/singletrip/user/:id" component = { singleTrip } />
-                        <Route path = "*" component = { notFound } />
+                        {/* <Route path = "*" component = { notFound } /> */}
                     </Switch>
                     </div>
                     <Footer />
