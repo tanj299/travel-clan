@@ -30,7 +30,7 @@ class TripList extends Component {
         let trip_list = this.props.tripList.map ( (data, index) => {
             return ( 
             <li key = { data.id } >
-                    <TripInfo tripData = {data} />
+                <TripInfo tripData = {data} />
             </li>
             );
         });

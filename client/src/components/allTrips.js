@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TripList from './partials/TripList.js';
+import ItineraryList from './partials/ItineraryList';
 import { Link } from 'react-router-dom'
 
 export default class allTrips extends Component {
@@ -20,7 +21,9 @@ export default class allTrips extends Component {
                     destination: "Good Place",
                     clan: "me"
                 },
-            ]
+            ],
+
+            anotherData: ['Eat', 'Pray', 'Love'],
         }
     }
 
@@ -37,6 +40,9 @@ export default class allTrips extends Component {
                     <p> This is all my trips </p> 
                     <Link to = "/addTrip">Add Trip</Link> 
                     <TripList tripList = { this.state.dummyData } />
+
+                    <br></br>
+                    {/* <ItineraryList itineraryList = { this.state.anotherData } /> */}
                 </div>
         )
     }
