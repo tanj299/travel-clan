@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "fixed-data-table": "^0.6.4",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.5",

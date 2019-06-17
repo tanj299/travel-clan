@@ -12,7 +12,6 @@ import Footer from './components/partials/Footer.js';
 import './App.css';
 
 // import components 
-import home from './components/login';
 import allTrips from './components/allTrips'
 import login from './components/login'
 // // import allUsers from './components/allUsersChat' 

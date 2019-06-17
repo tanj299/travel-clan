@@ -1,15 +1,26 @@
 import React, { Component } from 'react'
+import TripList from './partials/TripList.js';
+import { Link } from 'react-router-dom'
 
 export default class allTrips extends Component {
-    dummyData = {
-        Destination: "Asgard", 
-        Current  
-    }
+    
     constructor(props) {
         super(props);
         this.state = {
             data: [],
-            displayErrorMessage: false
+            displayErrorMessage: false,
+            dummyData: [
+                {   
+                    id: 1,
+                    destination: "Pawnee",
+                    clan: "you"
+                }, 
+                {  
+                    id: 2,
+                    destination: "Good Place",
+                    clan: "me"
+                },
+            ]
         }
     }
 
@@ -17,12 +28,16 @@ export default class allTrips extends Component {
     //     this.props.fetchAllTrips() 
     // }
 
+
     render() {
+        
         return (
-            <div className = "all-trips">
-                This is all trips
-                
-            </div>
+                <div className = "list">
+                    <br></br>
+                    <p> This is all my trips </p> 
+                    <Link to = "/addTrip">Add Trip</Link> 
+                    <TripList tripList = { this.state.dummyData } />
+                </div>
         )
     }
 }
