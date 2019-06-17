@@ -3,7 +3,7 @@ import TripList from './partials/TripList.js';
 import ItineraryList from './partials/ItineraryList';
 import { Link } from 'react-router-dom'
 
-export default class allTrips extends Component {
+export default class dashboard extends Component {
     
     constructor(props) {
         super(props);
