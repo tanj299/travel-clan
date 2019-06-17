@@ -12,7 +12,7 @@ import Footer from './components/partials/Footer.js';
 import './App.css';
 
 // import components 
-import allTrips from './components/allTrips'
+import dashboard from './components/dashboard'
 import login from './components/login'
 // // import allUsers from './components/allUsersChat' 
 import singleTrip from './components/singleTrip'
@@ -33,8 +33,8 @@ const App = () => {
                     <Switch>
                         <Route path = "/" exact component = { login } />
                         <Route path = "/signup" component = { signup } />
-                        <Route path = "/alltrips" component = { allTrips } />
-                        <Route path = "/alltrips/user/:id" component = { allTrips } />
+                        <Route path = "/dashboard" component = { dashboard } />
+                        <Route path = "/dashboard/user/:id" component = { dashboard } />
                         <Route path = "/singletrip/user/:id" component = { singleTrip } />
                         <Route path = "*" component = { notFound } />
                     </Switch>
