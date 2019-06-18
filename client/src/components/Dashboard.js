@@ -15,13 +15,13 @@ export default class Dashboard extends Component {
                     id: 1,
                     user: "Leslie", 
                     destination: "Pawnee",
-                    clan: "you"
+                    clan: "Parks and Rec"
                 }, 
                 {  
                     id: 2,
                     user: "Chidi",
                     destination: "Good Place",
-                    clan: "me"
+                    clan: "The Bad Place People"
                 },
             ],
 

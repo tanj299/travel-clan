@@ -32,9 +32,10 @@ const App = () => {
                     <Switch>
                         <Route path = "/" exact component = { Login } />
                         <Route path = "/signup" component = { Signup } />
+                        {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
-                        <Route path = "/dashboard/user/:id" component = { Dashboard } />
-                        <Route path = "/singletrip/user/:id" component = { SingleTrip } />
+                        {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
+                        <Route path= "/:user/singletrip/:destination" component = { SingleTrip } />
                         <Route path = "*" component = { NotFound } />
                     </Switch>
                     </div>
