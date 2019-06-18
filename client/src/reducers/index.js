@@ -1,5 +1,6 @@
-// export { default as AllUsers } from '../components/store/utilities/AllUsers'
-// export { default as AllTrips } from '../components/store/utilities/AllTrips'
-// export { default as SingleUser } from '../components/store/utilities/SingleUser'
-// export { default as SingleTrip } from '../components/store/utilities/SingleTrip'
-// export { default as SelectedChatRoom} from '../components/store/utilities/SelectedChatRoom' 
+// A barrel file for our reducers, which will be combined and passed into the Redux store we create;
+// The aliases of reducers in this file will be assigned as the names of the keys in the Redux store;
+export { default as currentTrip } from '../store/utilities/AllTrips';
+export { default as currentUser } from '../store/utilities/AllUsers';
+export { default as thisTrip } from '../store/utilities/SingleTrip';
+export { default as thisUser } from '../store/utilities/SingleUser';
