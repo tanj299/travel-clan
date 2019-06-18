@@ -4,7 +4,7 @@ const Message = require('./db/models/message');
 const Channel = require('./db/models/channel');
 
 const channels = [
-  { name: 'really_random' }
+  { name: 'really_random' },
   { name: 'generally_speaking' },
   { name: 'dogs_of_fullstack' },
   { name: 'lunch_planning' }

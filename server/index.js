@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const db = require('./db');
-const PORT = process.env.PORT || 8080; //43594
+const PORT = process.env.PORT || 3000; //43594
 const app = express();
 const server = app.listen(PORT, () => console.log(`Feeling chatty on port ${PORT}`));
 const io = require('socket.io')(server);
@@ -13,14 +13,14 @@ require('./socket')(io);
 module.exports = app;
 
 //sync the db
-db.sync({force:true}).then(() => console.log('Database is synced'));
+db.sync().then(() => console.log('Database is synced'));
 
 // logging middleware
 app.use(morgan('dev'));
 
 // static middleware
 app.use(express.static(path.join(__dirname, '..', 'node_modules')));
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '../client', 'public')));
 
 // body parsing middleware
 app.use(express.json());
@@ -38,7 +38,7 @@ app.use((req, res, next) =>
 
 // send index.html
 app.use('*', (req, res, next) =>
-  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+  res.sendFile(path.join(__dirname, '..', '/client/public/index.html'))
 );
 
 // error handling endware
