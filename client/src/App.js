@@ -32,7 +32,7 @@ const App = () => {
                         {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
-                        <Route path= "/:user/singletrip/:destination" component = { SingleTrip } />
+                        <Route path= "/singletrip" component = { SingleTrip } />
                         <Route path = "*" component = { NotFound } />
                     </Switch>
                     </div>
