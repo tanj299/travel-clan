@@ -1,16 +1,22 @@
 {
-  "name": "travel-clans",
-  "version": "0.0.0",
-  "private": true,
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend server for travel-clan web-app, that handles the user and trips information",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
+  "author": "Anupam Das",
+  "license": "ISC",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.8.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
