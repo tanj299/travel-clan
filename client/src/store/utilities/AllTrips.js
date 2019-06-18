@@ -31,7 +31,7 @@ const removeAllTrips = () => {
 // THUNK CREATORS;
 export const fetchAllTripsThunk = () => (dispatch) => {
   return axios
-    // .get('/api/trips') Mockaroo Data    
+    .get('../MOCK_DATA_TRIPS.json') // Mockaroo Data    
     .then(res => res.data)
     .then(thisTrip => dispatch(fetchAllTrips(thisTrip)))
     .catch(err => console.log(err));

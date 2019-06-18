@@ -9,13 +9,13 @@ import Footer from './components/partials/Footer.js';
 import './App.css'; // import css
 
 // import components 
-import allTrips from './components/AllTrips'
-import login from './components/Login'
+import AllTrips from './components/AllTrips'
+import Login from './components/Login'
 // // import allUsers from './components/AllUsersChat' 
-import singleTrip from './components/SingleTrip'
+import SingleTrip from './components/SingleTrip'
 // // import singleUser from './components/SingleUser'
 // // import selectedChatRoom from './components/SelectedChatRoom';
-import signup from './components/SignUp'
+import SignUp from './components/SignUp'
 
 const App = () => { 
   return (
@@ -26,11 +26,11 @@ const App = () => {
           <div className="page-body">      
 
           <Switch>
-            <Route path = "/" exact component = { login } />
-            <Route path = "/signup" component = { signup } />
-            <Route path = "/allTrips" component = { allTrips } />
-            <Route path = "/allTrips/user/:id" component = { allTrips } />
-            <Route path = "/singletrip/user/:id" component = { singleTrip } />
+            <Route path = "/" exact component = { Login } />
+            <Route path = "/signup" component = { SignUp } />
+            <Route path = "/allTrips" component = { AllTrips } />
+            <Route path = "/allTrips/user/:id" component = { AllTrips } />
+            <Route path = "/singletrip/user/:id" component = { SingleTrip } />
             {/* <Route path = "*" component = { notFound } /> */}
           </Switch>
 
