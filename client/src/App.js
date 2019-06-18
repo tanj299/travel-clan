@@ -1,5 +1,4 @@
 // container to render all components with routes
-
 // src/routes.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -7,9 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // reusable parts of components 
 import Navbar from './components/partials/Navbar.js';
 import Footer from './components/partials/Footer.js';
-
-// import css 
-import './App.css';
+import './App.css'; // import css
 
 // import components 
 import Dashboard from './components/Dashboard'
@@ -43,9 +40,7 @@ const App = () => {
                 </div>
             </Router>
         </div>
-    ); 
+  ); 
 }
-
-
 
 export default App;
