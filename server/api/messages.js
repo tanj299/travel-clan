@@ -23,8 +23,12 @@ router.post('/', async (req, res, next) => {
     const [author] = await Author.findOrCreate({
       where: {
         name: req.body.name || 'Cody'
+       
       }
+      
+     
     })
+    console.log(req.body.name)
     const message = Message.build(req.body);
     message.setAuthor(author, { save: false });
     await message.save()

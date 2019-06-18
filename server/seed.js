@@ -5,9 +5,9 @@ const Channel = require('./db/models/channel');
 
 const channels = [
   { name: 'really_random' }
-//   { name: 'generally_speaking' },
-//   { name: 'dogs_of_fullstack' },
-//   { name: 'lunch_planning' }
+  { name: 'generally_speaking' },
+  { name: 'dogs_of_fullstack' },
+  { name: 'lunch_planning' }
 ];
 
 const authors = [{
