@@ -4,7 +4,7 @@ import NewMessageEntry from './NewMessageEntry'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-export const MessagesList = props => {
+ const MessagesList = props => {
     const channelId = Number(props.match.params.channelId) // because it's a string "1", not a number!
     const messages = props.messages
     const filteredMessages = messages.filter(
@@ -27,4 +27,4 @@ const mapStateToProps = state => ({
     messages: state.messages,
 })
 
-export default withRouter(connect(mapStateToProps)(MessagesList))
+export default withRouter(connect(mapStateToProps, null)(MessagesList))

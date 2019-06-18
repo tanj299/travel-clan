@@ -1,6 +1,7 @@
 /*
 For now, the user can enter their display name.
- Eventually it will be inputed to the store from the original authentication and this will be uneccesary
+Eventually it will be inputed to the store from the original authentication 
+and this will be uneccesary.
  */
 
 
@@ -8,9 +9,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
-import { userSet } from '../store'
+import { userSet } from '../ChatStore'
 
-export class NameEntry extends React.Component {
+class NameEntry extends React.Component {
     constructor() {
         super()
         this.handleChange = this.handleChange.bind(this)
@@ -23,19 +24,20 @@ export class NameEntry extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <label htmlFor="name">Your name:</label>
                 <input
                     name="name"
                     onChange={this.handleChange}
                     value={this.props.userName}
                 />
-            </React.Fragment>
+            </div>
         )
     }
 }
 
 export default connect(
+    
     state => ({
         userName: state.user,
     }),

@@ -1,7 +1,7 @@
-const db = require('./db');
-const Author = require('./db/models/author');
-const Message = require('./db/models/message');
-const Channel = require('./db/models/channel');
+const db = require('./server/db');
+const Author = require('./server/db/models/author');
+const Message = require('./server/db/models/message');
+const Channel = require('./server/db/models/channel');
 
 const channels = [
   { name: 'really_random' },
@@ -11,68 +11,66 @@ const channels = [
 ];
 
 const authors = [{
-  name: 'Jayson',
-  image: '/images/Jayson.jpg'
+  name: 'Cody',
+  image: '/images/cody.jpg'
 }, {
-  name: 'Shania',
-  image: '/images/Shania.jpg'
+  name: 'Ben',
+  image: '/images/ben.jpg'
 }, {
-  name: 'Anupam',
-  image: '/images/Anupam.jpg'
+  name: 'Star',
+  image: '/images/star.jpg'
 }, {
   name: 'Batman',
-  image: '/images/batman.jpeg'
+  image: '/images/batman.jpg'
 }, {
-  name: 'Shaina',
-  image: '/images/Shaina.jpg'
-}
-// {
-//   name: 'Fira',
-//   image: '/images/fira.jpg'
-// }, {
-//   name: 'Henry',
-//   image: '/images/henry.jpg'
-// }, {
-//   name: 'Marcy',
-//   image: '/images/marcy.jpg'
-// }, {
-//   name: 'Milton',
-//   image: '/images/milton.jpg'
-// }, {
-//   name: 'Murphy',
-//   image: '/images/murphy.jpg'
-// }, {
-//   name: 'Raffi',
-//   image: '/images/raffi.jpg'
-// }, {
-//   name: 'Tulsi',
-//   image: '/images/tulsi.jpg'
-// }, {
-//   name: 'Pork Chop',
-//   image: '/images/pork_chop.jpg'
-// }, {
-//   name: 'Ribs',
-//   image: '/images/ribs.jpg'
-// }, {
-//   name: 'Stacey',
-//   image: '/images/stacey.jpg'
-// }, {
-//   name: 'JD',
-//   image: '/images/jd.jpg'
-// }, {
-//   name: 'BenBen',
-//   image: '/images/benben.png'
-// }, {
-//   name: 'Odie',
-//   image: '/images/odie.jpg'
-// }
-];
+  name: 'Elliott',
+  image: '/images/elliott.jpg'
+}, {
+  name: 'Fira',
+  image: '/images/fira.jpg'
+}, {
+  name: 'Henry',
+  image: '/images/henry.jpg'
+}, {
+  name: 'Marcy',
+  image: '/images/marcy.jpg'
+}, {
+  name: 'Milton',
+  image: '/images/milton.jpg'
+}, {
+  name: 'Murphy',
+  image: '/images/murphy.jpg'
+}, {
+  name: 'Raffi',
+  image: '/images/raffi.jpg'
+}, {
+  name: 'Tulsi',
+  image: '/images/tulsi.jpg'
+}, {
+  name: 'Pork Chop',
+  image: '/images/pork_chop.jpg'
+}, {
+  name: 'Ribs',
+  image: '/images/ribs.jpg'
+}, {
+  name: 'Stacey',
+  image: '/images/stacey.jpg'
+}, {
+  name: 'JD',
+  image: '/images/jd.jpg'
+}, {
+  name: 'BenBen',
+  image: '/images/benben.png'
+}, {
+  name: 'Odie',
+  image: '/images/odie.jpg'
+}];
 
 const id = () => Math.round(Math.random() * (authors.length - 1)) + 1;
 
 //display random messages from a random person to start
 const messages = [
-  { authorId: id(), content: 'testing!', channelId: 1 },
+  { authorId: id(), content: 'I like React!', channelId: 1 },
   { authorId: id(), content: 'I like Redux!', channelId: 1 },
   { authorId: id(), content: 'I like React-Redux!', channelId: 1 },
   { authorId: id(), content: 'I like writing web apps!', channelId: 2 },
@@ -85,7 +83,8 @@ const messages = [
   { authorId: id(), content: 'I want to get salad!', channelId: 4 },
   { authorId: id(), content: 'I want a taco salad!', channelId: 4 }
 ];
-const seed = () => 
+
+const seed = () =>
   Promise.all(authors.map(author =>
     Author.create(author))
   )
@@ -97,8 +96,7 @@ const seed = () =>
   Promise.all(messages.map(message =>
     Message.create(message))
   )
- ).then(()=> console.log('Completed seeding'))
- .catch(err => console.error(err));
+);
 
 const main = () => {
   console.log('Syncing db...');
@@ -107,14 +105,13 @@ const main = () => {
       console.log('Seeding databse...');
       return seed();
     })
-    .then(() => {
-      db.close();
-      process.exit(0);
-      return null;
-    })
     .catch(err => {
       console.log('Error while seeding');
       console.log(err.stack);
+    })
+    .then(() => {
+      db.close();
+      return null;
     });
 };
 

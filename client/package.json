@@ -1,32 +1,39 @@
 {
-  "name": "client",
+  "name": "travelclan",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "fixed-data-table": "^0.6.4",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.5",
-    "react-dom": "^15.6.1",
-    "react-redux": "^5.0.6",
-    "react-router": "^3.0.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.0.1",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "css-loader": "^3.0.0",
+    "fixed-data-table": "^0.6.4",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.1.1",
+    "react-router": "^3.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.0.1",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sequelize": "^4.4.0",
+    "socket.io": "^1.7.2",
+    "socket.io-client": "^2.2.0",
+    "style-loader": "^0.23.1"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3000",
   "browserslist": {
     "production": [
       ">0.2%",

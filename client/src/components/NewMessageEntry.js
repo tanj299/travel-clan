@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { sendMessage } from '../store'
+import { sendMessage } from '../ChatStore'
 // From Justin->TODO: use `withRouter` if we have update blocking issues
 import { connect } from 'react-redux'
 
@@ -22,6 +22,7 @@ export class NewMessageEntry extends Component {
   render () {
     return (
       <form id="new-message-form" onSubmit={this.handleSubmit}>
+    
         <div className="input-group input-group-lg">
           <input
             className="form-control"

@@ -38,7 +38,7 @@ export const sendMessage = message => async (dispatch, getState) => {
 // Reducer
 const initialState = {
     messages: [],
-    user: 'Cody',
+    user: 'Jayson',
 }
 
 // // alternative pattern for writing reducer cases
