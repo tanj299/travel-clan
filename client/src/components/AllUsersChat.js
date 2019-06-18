@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class allUsersChat extends Component {
+export default class AllUsersChat extends Component {
   constructor(props) {
       super(props)
       // console.log(props)

@@ -12,7 +12,7 @@ const api_secret = process.env.AMADEUS_API_SECRET;
 // })
 
 
-class ZipCode extends Component{
+class Flights extends Component{
   constructor(props){
     super(props);
       this.state = {

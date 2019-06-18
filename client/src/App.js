@@ -12,14 +12,13 @@ import Footer from './components/partials/Footer.js';
 import './App.css';
 
 // import components 
-import dashboard from './components/dashboard'
-import login from './components/login'
+import Dashboard from './components/Dashboard'
+import Login from './components/Login'
 // // import allUsers from './components/allUsersChat' 
-import singleTrip from './components/singleTrip'
-// // import singleUser from './components/singleUser'
+import SingleTrip from './components/SingleTrip'
 // // import selectedChatRoom from './components/selectedChatRoom';
-import signup from './components/signup'
-import notFound from './components/notFound';
+import Signup from './components/Signup'
+import NotFound from './components/NotFound';
 
 const App = () => { 
     return (
@@ -31,12 +30,12 @@ const App = () => {
                     <div className="page-body">      
 
                     <Switch>
-                        <Route path = "/" exact component = { login } />
-                        <Route path = "/signup" component = { signup } />
-                        <Route path = "/dashboard" component = { dashboard } />
-                        <Route path = "/dashboard/user/:id" component = { dashboard } />
-                        <Route path = "/singletrip/user/:id" component = { singleTrip } />
-                        <Route path = "*" component = { notFound } />
+                        <Route path = "/" exact component = { Login } />
+                        <Route path = "/signup" component = { Signup } />
+                        <Route path = "/dashboard" component = { Dashboard } />
+                        <Route path = "/dashboard/user/:id" component = { Dashboard } />
+                        <Route path = "/singletrip/user/:id" component = { SingleTrip } />
+                        <Route path = "*" component = { NotFound } />
                     </Switch>
                     </div>
                     <Footer />

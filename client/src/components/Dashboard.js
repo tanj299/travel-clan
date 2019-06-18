@@ -3,7 +3,7 @@ import TripList from './partials/TripList.js';
 import ItineraryList from './partials/ItineraryList';
 import { Link } from 'react-router-dom'
 
-export default class dashboard extends Component {
+export default class Dashboard extends Component {
     
     constructor(props) {
         super(props);
@@ -13,11 +13,13 @@ export default class dashboard extends Component {
             dummyData: [
                 {   
                     id: 1,
+                    user: "Leslie", 
                     destination: "Pawnee",
                     clan: "you"
                 }, 
                 {  
                     id: 2,
+                    user: "Chidi",
                     destination: "Good Place",
                     clan: "me"
                 },
@@ -35,13 +37,16 @@ export default class dashboard extends Component {
     render() {
         
         return (
-                <div className = "list">
-                    <br></br>
-                    <p> This is all my trips </p> 
-                    <Link to = "/addTrip">Add Trip</Link> 
-                    <TripList tripList = { this.state.dummyData } />
+                <div className = "list-container">
 
                     <br></br>
+                    <p> This is all my trips </p> 
+                    <Link to="/addTrip">Add Trip</Link>
+
+                    <div className = "large-list">
+                        <TripList tripList = { this.state.dummyData } />
+                    </div>
+
                     {/* <ItineraryList itineraryList = { this.state.anotherData } /> */}
                 </div>
         )

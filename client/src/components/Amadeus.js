@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 
-export default class SingleTrip extends Component {
+export default class Amadeus extends Component {
     render() {
         return (
             <div>
