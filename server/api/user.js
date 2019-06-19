@@ -66,6 +66,13 @@ router.post('/signup', async (req, res, next) =>{
             //if the email is not in use create new user
             //else if the user exists, throw error
             if(!user){
+                // if(req.body.password === req.body.confirmedPassword){
+                //     res.json({
+                //         message: "password matches"
+                //     })
+                // }else{
+                //     next(new Error('password Does not match'));
+                // }
                 const user = User.create({
                     email: req.body.email,
                     password: req.body.password
