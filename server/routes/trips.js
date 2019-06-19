@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET trips listing. */
-router.get('/', function(req, res, next) {
+router.get('/trips', function(req, res, next) {
   res.json([{
       name: "NYC Trip Partayyy",
       dest: "NYC",

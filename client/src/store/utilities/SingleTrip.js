@@ -16,7 +16,7 @@ const fetchSingleTrip = (trip) => {
 // THUNK CREATORS;
 export const fetchSingleTripThunk = () => (dispatch) => {
   return axios
-    .get('/api/trips')    
+    .get('api/trips')    
     .then(res => res.data)
     .then(thisTrip => dispatch(fetchSingleTrip(thisTrip)))
     .catch(err => console.log(err));

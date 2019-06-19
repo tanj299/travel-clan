@@ -12,7 +12,7 @@ class SingleTrip extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchSingleTrip(this.props.match.params.id)
+        this.props.fetchSingleTrip()
         console.log("single trip", this.props)
     }
 
@@ -23,8 +23,8 @@ class SingleTrip extends Component {
         return (
             <div>
                 This is single trip 
-                    {  this.props.singleTrip && this.props.singleTrip }
-                    { this.props.singleTrip }
+                    {/* {  this.props.singleTrip && this.props.singleTrip } */}
+                    { this.props.singleTrip.id }
             </div>
         )
     }
