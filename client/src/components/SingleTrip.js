@@ -1,8 +1,7 @@
-import axios from 'axios';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchTripThunk } from '../thunks';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { fetchSingleTripThunk } from '../thunks';
+import { connect } from 'react-redux';
 
 const Amadeus = require('amadeus');
 var amadeus = new Amadeus({
@@ -19,7 +18,6 @@ class SingleTrip extends Component{
       airportsFromCity: []
     }
   }
-
   componentDidMount() {
     this.props.fetchTrip()
   }
@@ -53,29 +51,6 @@ class SingleTrip extends Component{
       <div>
         <h1 className="title"> Your Trip:  {thisTrip.destination} </h1>
         {/* <br> */}
-
-        <h3>Get Airports in a City</h3>
-        <label> Input City: </label>
-        <input type="text" placeholder="i.e. London, Paris, NYC" onChange={this.handleLocations}/>
- 
-        Map over All Airports In Designated City
-        <div>{ this.state.airportsFromCity && this.state.airportsFromCity.map(res => {
-          console.log("Iata", res.iataCode);
-          console.log("Detailed", res.detailedName);
-          console.log("Name", res.name);
-          console.log("Address", res.cityName, res.countryName, res.regionCode);
-          
-          return (
-            <div className="ListComponent"> 
-              <div> IataCode: {res.iataCode} </div> 
-              <div> Detailed Name: {res.detailedName} </div> 
-              <div> Name: {res.name} </div> 
-              <div> Address: {res.cityName}, {res.countryName}
-                    , {res.regionCode} </div> 
-            </div> );
-          }) 
-        }</div>
-
         
         <h3>Get Airports in a City</h3>
         <label> Input City: </label>
@@ -98,25 +73,27 @@ class SingleTrip extends Component{
             </div> );
           }) 
         }</div>
-
+        <div>
+          This is single trip
+                    {/* {  this.props.singleTrip && this.props.singleTrip } */}
+          {this.props.singleTrip.id}
+        </div>
       </div>
     );
   }
 };
 
-// Map state to props; [required special function]
-function mapStateToProps(state) {
-  return {
-    thisTrip: state.thisTrip
-  }
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        singleTrip: state.singleTrip
+    }
 }
 
-// Map dispatch to props;
-function mapDispatch(dispatch) {
-  return {
-    fetchTrip: () => dispatch(fetchTripThunk())
-  }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchSingleTrip: () => dispatch(fetchSingleTripThunk())
+    }
 }
 
-// Connect Student to the redux-store
-export default connect(mapStateToProps, mapDispatch)(SingleTrip);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleTrip);

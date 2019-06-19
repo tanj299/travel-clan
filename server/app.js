@@ -3,23 +3,24 @@ const bodyParser = require('body-parser');
 const path = require('path');
 //const database = require('./models');
 const userRoute = require('./api/user');
-const tripRoute = require('./api/trip');
+const tripRoute = require('./routes/trips');
+console.log(tripRoute);
 
 const database = require('./config/database');
 
-database
-.authenticate()
-    .then(()=>console.log("DB connected"))
-    .catch(err => console.log('Error is: '+ err))
-    //database.sync({force: true}) 
+// database
+// .authenticate()
+//     .then(()=>console.log("DB connected"))
+//     .catch(err => console.log('Error is: '+ err))
+//     //database.sync({force: true}) 
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.send('INDEX'));
+// app.get('/', (req, res) => res.send('INDEX'));
 
-app.use('/api', userRoute )
+// app.use('/api', userRoute )
 app.use('/api', tripRoute )
 
 const PORT = 8080;
