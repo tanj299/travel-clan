@@ -1,5 +1,5 @@
-// container to render all components with routes
-// src/routes.js
+// container to render all components with api route
+// src/
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -9,12 +9,8 @@ import Footer from './components/partials/Footer.js';
 import './App.css'; // import css
 
 // import components 
-// import AllTrips from './components/AllTrips'
-import Login from './components/Login'
-// // import allUsers from './components/AllUsersChat' 
+import Login from './components/Login' 
 import SingleTrip from './components/SingleTrip'
-// // import singleUser from './components/SingleUser'
-// // import selectedChatRoom from './components/SelectedChatRoom';
 import SignUp from './components/SignUp'
 
 const App = () => { 
@@ -30,6 +26,8 @@ const App = () => {
             <Route path = "/signup" component = { SignUp } />
             {/* <Route path = "/allTrips" component = { AllTrips } />
             <Route path = "/allTrips/user/:id" component = { AllTrips } /> */}
+            <Route path = "/singletrip" component = { SingleTrip } />
+            
             <Route path = "/singletrip/user/:id" component = { SingleTrip } />
             {/* <Route path = "*" component = { notFound } /> */}
           </Switch>
