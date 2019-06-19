@@ -19,7 +19,7 @@ class SingleTrip extends Component{
     }
   }
   componentDidMount() {
-    this.props.fetchTrip()
+    this.props.fetchSingleTrip()
   }
 
   // Hotel Search API
@@ -48,37 +48,37 @@ class SingleTrip extends Component{
     const { thisTrip } = this.props
 
     return (
-      <div>
-        <h1 className="title"> Your Trip:  {thisTrip.destination} </h1>
-        {/* <br> */}
+  //     <div>
+  //       <h1 className="title"> Your Trip:  {thisTrip.destination} </h1>
+  //       {/* <br> */}
         
-        <h3>Get Airports in a City</h3>
-        <label> Input City: </label>
-        <input type="text" placeholder="i.e. London, Paris, NYC" onChange={this.handleLocations}/>
- 
-        Map over All Airports In Designated City
-        <div>{ this.state.airportsFromCity && this.state.airportsFromCity.map(res => {
-          console.log("Iata", res.iataCode);
-          console.log("Detailed", res.detailedName);
-          console.log("Name", res.name);
-          console.log("Address", res.cityName, res.countryName, res.regionCode);
+  //       <h3>Get Airports in a City</h3>
+  //       <label> Input City: </label>
+  //       <input type="text" placeholder="i.e. London, Paris, NYC" onChange={this.handleLocations}/>
+  // All Airports In Designated City
+  //       <div>{ this.state.airportsFromCity && this.state.airportsFromCity.map(res => {
+  //         console.log("Iata", res.iataCode);
+  //         console.log("Detailed", res.detailedName);
+  //         console.log("Name", res.name);
+  //         console.log("Address", res.cityName, res.countryName, res.regionCode);
           
-          return (
-            <div className="ListComponent"> 
-              <div> IataCode: {res.iataCode} </div> 
-              <div> Detailed Name: {res.detailedName} </div> 
-              <div> Name: {res.name} </div> 
-              <div> Address: {res.cityName}, {res.countryName}
-                    , {res.regionCode} </div> 
-            </div> );
-          }) 
-        }</div>
+  //         return (
+  //           <div className="ListComponent"> 
+  //             <div> IataCode: {res.iataCode} </div> 
+  //             <div> Detailed Name: {res.detailedName} </div> 
+  //             <div> Name: {res.name} </div> 
+  //             <div> Address: {res.cityName}, {res.countryName}
+  //                   , {res.regionCode} </div> 
+  //           </div> );
+  //         }) 
+  //       }</div>
+  //       Map over
         <div>
           This is single trip
                     {/* {  this.props.singleTrip && this.props.singleTrip } */}
           {this.props.singleTrip.id}
         </div>
-      </div>
+      // </div>
     );
   }
 };
