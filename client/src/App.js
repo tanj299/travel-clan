@@ -29,11 +29,10 @@ const App = () => {
                     <Switch>
                         <Route path = "/" exact component = { Login } />
                         <Route path = "/signup" component = { SignUp } />
-                        <Route path = "/singlepage" component = { SingleTrip } />
+                        <Route path = "/singletrip" component = { SingleTrip } />
                         {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
-                        <Route path= "/singletrip" component = { SingleTrip } />
                         <Route path = "*" component = { NotFound } />
                     </Switch>
                     </div>

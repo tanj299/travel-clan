@@ -5,9 +5,16 @@ const db = require('../config/database')
 const Trip = require('../models/Trip');
 
 router.get('/allTrips', (req,res) => {
-    res.json({
-        message: 'trip get method'
-    });
+    // res.json({
+    //     message: 'trip get method'
+    // });
+    Trip.findAll()
+        .then(trip => {
+            console.log(trip);
+            res.json(trip);
+        })
+        .catch(err => console.log(err))
+
 });
 
 

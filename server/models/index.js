@@ -1,12 +1,12 @@
 // 'use strict';
 
 //initialize database
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
-    host: 'localhost',
-    port: 5432,
-    dialect: 'postgres'
-});
+// const Sequelize = require('sequelize');
+// const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
+//     host: 'localhost',
+//     port: 5432,
+//     dialect: 'postgres'
+// });
 
 // const database = {
 //     User: sequelize.import('./User.js'),
