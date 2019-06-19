@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import MessagesList from './MessagesList';
-import { fetchMessages } from '../ChatStore'
+import { fetchMessages } from '../store/ChatStore'
 
 export class Main extends Component {
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTripThunk } from '../thunks';
 import { Link } from 'react-router-dom';
+import Main from './Main';
 
 class SingleTrip extends Component{
   constructor(props){
@@ -13,6 +14,9 @@ class SingleTrip extends Component{
   componentDidMount() {
     this.props.fetchTrip()
   }
+  // displayChat=()=>{
+  //   this.setState({this.Main})
+  // }
 
   render() {
     console.log('Trip Render', this.props)
@@ -21,7 +25,8 @@ class SingleTrip extends Component{
     return (
       <div>
         <h1 className="title"> Trip:  {thisTrip.destination}</h1>
-       
+       {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
+     <link to = "/Main">Chat Here!</link>
       </div>
     );
   }
