@@ -17,6 +17,7 @@ import SingleTrip from './components/SingleTrip'
 // // import selectedChatRoom from './components/SelectedChatRoom';
 import SignUp from './components/SignUp'
 
+
 const App = () => { 
   return (
     <div className = "App">
