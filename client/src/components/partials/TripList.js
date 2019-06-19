@@ -29,8 +29,10 @@ class TripList extends Component {
 
         let trip_list = this.props.tripList.map ( (data, index) => {
             return ( 
-            <li key = { data.id } >
-                    <TripInfo tripData = {data} />
+            <li className = "inner-item" key = { data.id } >
+                <Link to = { '/' + data.user + '/singletrip/' + data.destination } >
+                    <TripInfo tripData={data} />
+                </Link>
             </li>
             );
         });
@@ -38,7 +40,7 @@ class TripList extends Component {
         console.log("my trip list",trip_list);
 
         let toRender = ( 
-            <ul>
+            <ul className = "item_list">
                 { trip_list }
             </ul>
         );

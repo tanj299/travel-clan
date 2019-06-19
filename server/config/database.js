@@ -4,7 +4,7 @@
 const Sequelize = require('sequelize');
 module.exports = new Sequelize('travelClan', 'postgres', 'password123',{
     host: 'localhost',
-    port: 5433,
+    port: 5432,
     dialect: 'postgres'
 });
 
