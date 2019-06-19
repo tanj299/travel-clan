@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, '../client', 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => res.send('INDEX'));
+// app.get('/', (req, res) => res.send('INDEX'));
 
 app.use('/api', userRoute )
 app.use('/api', indexRoute)
