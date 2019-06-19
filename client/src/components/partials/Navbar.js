@@ -8,6 +8,7 @@ class Navbar extends Component {
                 <Link to = "/" className = "home-link">
                     Home
                 </Link>
+                <Link to = "/singletrip"> Single Page - Test </Link>
                 <Link to = "/dashboard"> Dashboard </Link>
                 <Link to = "/signup"> Sign Up </Link>
             </nav>

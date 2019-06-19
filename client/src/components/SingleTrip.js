@@ -12,7 +12,7 @@ class SingleTrip extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchSingleTrip()
+        this.props.fetchSingleTrip(this.state)
         console.log("single trip", this.props)
     }
 

@@ -29,6 +29,7 @@ const App = () => {
                     <Switch>
                         <Route path = "/" exact component = { Login } />
                         <Route path = "/signup" component = { Signup } />
+                        <Route path = "/singlepage" component = { SingleTrip } />
                         {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
