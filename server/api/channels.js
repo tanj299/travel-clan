@@ -3,7 +3,7 @@ Express backend for chat
 */
 
 const router = require('express').Router();
-const { Channel, Message } = require('../db/models');
+const { Channel, Message } = require('../models');
 
 module.exports = router;
 

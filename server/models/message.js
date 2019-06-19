@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-// const db = require('../db');
+const db = require('../config/database');
 const Author = require('./author');
 
 module.exports = db.define('message', {

@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-// const db = require('../db');
+const db = require('../config/database');
+// console.log("db",db);
 
 const images = [
   'https://designerdoginfo.files.wordpress.com/2013/01/puggle-puppy-4.jpg?w=584',
@@ -11,7 +12,7 @@ const images = [
 
 const getRandomImage = () => images[Math.floor(Math.random() * images.length)];
 
-module.exports = db.define('author', {
+const author = db.define('author', {
   name: {
     type: Sequelize.STRING,
     allowNull: false
@@ -23,3 +24,5 @@ module.exports = db.define('author', {
     }
   }
 });
+
+module.exports = author;

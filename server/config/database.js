@@ -1,8 +1,8 @@
 'use strict';
 
-const Message = require('./message');
-const Channel = require('./channel');
-const Author = require('./author');
+// const Message = require('../models/message');
+// const Channel = require('../models/channel');
+// const Author = require('../models/author');
 
 
 // const database = {
@@ -21,22 +21,22 @@ module.exports = new Sequelize('travelClan', 'postgres', 'maxmax',{
     dialect: 'postgres'
 });
 
-Channel.hasMany(Message, {
-    onDelete: 'cascade',
-    hooks: true
-  });
+// Channel.hasMany(Message, {
+//     onDelete: 'cascade',
+//     hooks: true
+//   });
   
-  Author.hasMany(Message);
-  Message.belongsTo(Channel);
-  Message.belongsTo(Author);
+//   Author.hasMany(Message);
+//   Message.belongsTo(Channel);
+//   Message.belongsTo(Author);
 
 
-  module.exports = {
-    database,
-    Channel,
-    Message,
-    Author
-  };
+  // module.exports = {
+  //   database,
+  //   Channel,
+  //   Message,
+  //   Author
+  // };
 // const database = {
 //     User: sequelize.import('./User.js'),
 //     Trip: sequelize.import('./Trip.js')

@@ -1,6 +1,6 @@
 //import databases
-const Message = require('../db/models/message');
-const Channel = require('../db/models/channel');
+const Message = require('../models/message');
+const Channel = require('../models/channel');
 
 module.exports = io => {
 
