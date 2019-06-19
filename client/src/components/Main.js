@@ -5,11 +5,14 @@ import { connect } from 'react-redux'
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import MessagesList from './MessagesList';
-import { fetchMessages } from '../store/ChatStore'
+// import Main from './Main';
+import { fetchMessages } from '../thunks'
 
 export class Main extends Component {
 
+
   componentDidMount () {
+    console.log("MAIN")
     this.props.loadMessages()
   }
 
@@ -22,6 +25,7 @@ export class Main extends Component {
         <main>
           <Switch>
             <Route path="/channels/:channelId" component={MessagesList} />
+            {/* <Route path="/Main" component={MessagesList} /> */}
             <Redirect to="/channels/1" />
           </Switch>
         </main>

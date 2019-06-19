@@ -9,7 +9,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
-import { userSet } from '../store/ChatStore'
+import { userSet } from '../thunks'
 
 class NameEntry extends React.Component {
     constructor() {

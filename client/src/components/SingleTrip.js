@@ -43,6 +43,8 @@ class SingleTrip extends Component{
       })
     }) 
   }
+
+
   // displayChat=()=>{
   //   this.setState({this.Main})
   // }
@@ -53,9 +55,12 @@ class SingleTrip extends Component{
 
     return (
       <div>
-        <h1 className="title"> Trip:  {thisTrip.destination}</h1>
+        {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
        {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
-     <link to = "/Main">Chat Here!</link>
+    <div> <Link to = "/channels/1">Chat Here!</Link> </div>
+    
+
+    
 
           This is single trip
                     {/* {  this.props.singleTrip && this.props.singleTrip } */}

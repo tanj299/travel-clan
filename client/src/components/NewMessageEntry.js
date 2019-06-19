@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { sendMessage } from '../store/ChatStore'
+import { sendMessage } from '../thunks'
 // From Justin->TODO: use `withRouter` if we have update blocking issues
 import { connect } from 'react-redux'
 
