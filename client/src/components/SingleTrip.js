@@ -20,65 +20,32 @@ class SingleTrip extends Component{
   }
   componentDidMount() {
     this.props.fetchSingleTrip()
+    console.log("this is single trip",this.props.fetchSingleTrip());
   }
 
-  // Hotel Search API
-  // Get list of hotels by city code
-  handleSearchHotelOffers = (event) => {
-    this.setState({
-      hotelOffers: 
-        amadeus.shopping.hotelOffers.get({
-        cityCode : event.target.value // Example "MAD"
-      })
-    })
-  }
-
-  // Returns a list of airports and cities matching a given keyword.
-  handleLocations = (event) => {
-    this.setState({
-      airportsFromCity: amadeus.referenceData.location.get({
-        keyword: event.target.value, // i.e. 'lon' <- london
-        subType: Amadeus.location.any
-      })
-    }) 
-  }
 
   render() {
     console.log('Trip Render', this.props)
-    const { thisTrip } = this.props
-
+    const { thisTrip, singleTrip } = this.props
+    const myTrip = singleTrip || []
+    console.log('This is the value of myTrip  obj ==================>>>>>',myTrip)
     return (
-  //     <div>
-  //       <h1 className="title"> Your Trip:  {thisTrip.destination} </h1>
-  //       {/* <br> */}
-        
-  //       <h3>Get Airports in a City</h3>
-  //       <label> Input City: </label>
-  //       <input type="text" placeholder="i.e. London, Paris, NYC" onChange={this.handleLocations}/>
-  // All Airports In Designated City
-  //       <div>{ this.state.airportsFromCity && this.state.airportsFromCity.map(res => {
-  //         console.log("Iata", res.iataCode);
-  //         console.log("Detailed", res.detailedName);
-  //         console.log("Name", res.name);
-  //         console.log("Address", res.cityName, res.countryName, res.regionCode);
-          
-  //         return (
-  //           <div className="ListComponent"> 
-  //             <div> IataCode: {res.iataCode} </div> 
-  //             <div> Detailed Name: {res.detailedName} </div> 
-  //             <div> Name: {res.name} </div> 
-  //             <div> Address: {res.cityName}, {res.countryName}
-  //                   , {res.regionCode} </div> 
-  //           </div> );
-  //         }) 
-  //       }</div>
-  //       Map over
+    
         <div>
-          This is single trip
-                    {/* {  this.props.singleTrip && this.props.singleTrip } */}
-          {this.props.singleTrip.id}
+
+        {myTrip.map((trip, index) => {
+			let myDestination = trip.destination // gets New York 
+			let myCity = trip.currentCity	// gets NYC 
+			// console.log('current destination', myDestination);
+			// console.log('current destination', myCity);
+          return (
+            <div>{
+              	trip.tripname + 
+              	trip.destination}</div>
+          )
+        })} 
+
         </div>
-      // </div>
     );
   }
 };

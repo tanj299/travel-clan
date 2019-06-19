@@ -23,7 +23,7 @@ export const fetchSingleTripThunk = () => (dispatch) => {
 }
 
 // REDUCER;
-export default (state = {}, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case FETCH_SINGLE_TRIP:
       return action.payload;
