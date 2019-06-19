@@ -1,48 +1,50 @@
-'use strict';
-var Sequelize = require("sequelize");
-module.exports = (sequelize, DataTypes) =>{
-    const User = sequelize.define('user', {
-        firstName:{
-            type: DataTypes.STRING
-        },
-        lastName:{
-            type: DataTypes.STRING
-        },
-        email:{
-            type: DataTypes.STRING
-        },
-        password:{
-            type: DataTypes.STRING
-        }
-    })
+// 'use strict';
+// //var Sequelize = require("sequelize");
+// module.exports = (sequelize, DataTypes) =>{
+//     const User = sequelize.define('user', {
+//         firstName:{
+//             type: DataTypes.STRING
+//         },
+//         lastName:{
+//             type: DataTypes.STRING
+//         },
+//         email:{
+//             type: DataTypes.STRING
+//         },
+//         password:{
+//             type: DataTypes.STRING
+//         }
+//     })
 
-    return User;
-}
+//     return User;
+// }
 
 
-// const Sequelize = require('sequelize');
-// const db = require('../config/database');
+const Sequelize = require('sequelize');
+const db = require('../config/database');
 
-// const User = db.define('user', {
-//     firstname:{
-//         type: Sequelize.STRING,
-//         // allowNull: false,
-//         unique: fasle
-//     },
-//     lastname:{
-//         type: Sequelize.STRING
-//     },
-//     email:{
-//         type: Sequelize.STRING,
-//         allowNull: false,
-//         unique: true,
-//     },
-//     password:{
-//         type: Sequelize.STRING,
-//         allowNull: false,
-//         unique: false
-//     }
-// })
+const User = db.define('user', {
+    firstname:{
+        type: Sequelize.STRING,
+        // allowNull: false,
+        unique: false
+    },
+    lastname:{
+        type: Sequelize.STRING
+    },
+    email:{
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+    },
+    password:{
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: false
+    }
+})
+
+module.exports = User;
 
 // User.associate = (models) => {
 //     // User can have many trips that they belong to. 

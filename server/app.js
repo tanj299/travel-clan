@@ -1,11 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const database = require('./models');
+//const database = require('./models');
 const userRoute = require('./api/user');
 
-const app = express();
-database.sequelize.sync({force: true})
+const database = require('./config/database');
+
+database
+.authenticate()
+    .then(()=>console.log("DB connected"))
+    .catch(err => console.log('Error is: '+ err))
+    database.sync({force: true}) 
+
+    const app = express();
 
 app.get('/', (req, res) => res.send('INDEX'));
 

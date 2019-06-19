@@ -1,19 +1,19 @@
-// 'use strict';
+'use strict';
 
-// //initialize database
-// const Sequelize = require('sequelize');
-// const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
-//     host: 'localhost',
-//     port: 5433,
-//     dialect: 'postgres'
-// });
+//initialize database
+const Sequelize = require('sequelize');
+module.exports = new Sequelize('travelClan', 'postgres', 'password123',{
+    host: 'localhost',
+    port: 5433,
+    dialect: 'postgres'
+});
 
 // const database = {
 //     User: sequelize.import('./User.js'),
 //     Trip: sequelize.import('./Trip.js')
 // }
 
-// //test database
+//test database
 // sequelize
 // .authenticate()
 //     .then(()=>console.log("DB connected"))
@@ -23,4 +23,3 @@
 // database.Sequelize = Sequelize;
 
 // module.exports = database;
-
