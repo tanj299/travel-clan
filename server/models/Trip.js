@@ -2,11 +2,6 @@
 const Sequelize = require('sequelize');
 const database = require('../config/database')
 
-<<<<<<< HEAD
-    return Trip;
-}
-
-=======
 const Trip = database.define('trip', {
     tripname:{
         type: Sequelize.STRING
@@ -65,4 +60,3 @@ const Trip = database.define('trip', {
 
 //     return Trip;
 // }
->>>>>>> 6192df87d64da1d59bdd9a15419fd03cc2099cdd

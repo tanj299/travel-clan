@@ -1,6 +1,5 @@
 // 'use strict';
 
-<<<<<<< HEAD:server/models/index.js
 //initialize database
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
@@ -8,15 +7,6 @@ const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
     port: 5432,
     dialect: 'postgres'
 });
-=======
-// //initialize database
-// const Sequelize = require('sequelize');
-// const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
-//     host: 'localhost',
-//     port: 5433,
-//     dialect: 'postgres'
-// });
->>>>>>> 6192df87d64da1d59bdd9a15419fd03cc2099cdd:server/models/Index.js
 
 // const database = {
 //     User: sequelize.import('./User.js'),
