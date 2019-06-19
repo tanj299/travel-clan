@@ -10,9 +10,11 @@ database
 .authenticate()
     .then(()=>console.log("DB connected"))
     .catch(err => console.log('Error is: '+ err))
-    database.sync({force: true}) 
+    //database.sync({force: true}) 
 
-    const app = express();
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => res.send('INDEX'));
 
