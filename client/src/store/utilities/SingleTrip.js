@@ -6,7 +6,7 @@ const FETCH_TRIP = "FETCH_TRIP";
 
 // ACTION CREATORS;
 // FETCHES_TRIP_ID [] FROM EXPRESS/POSTGRES SERVER
-const fetchTrip = (trip) => {
+const fetchSingleTrip = (trip) => {
   return {
     type: FETCH_TRIP,
     payload: trip
@@ -14,11 +14,11 @@ const fetchTrip = (trip) => {
 }
 
 // THUNK CREATORS;
-export const fetchTripThunk = () => (dispatch) => {
+export const fetchSingleTripThunk = () => (dispatch) => {
   return axios
-    .get('/routes/trips')    
+    .get('/api/trips')    
     .then(res => res.data)
-    .then(thisTrip => dispatch(fetchTrip(thisTrip)))
+    .then(thisTrip => dispatch(fetchSingleTrip(thisTrip)))
     .catch(err => console.log(err));
 }
 
