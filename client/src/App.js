@@ -14,7 +14,7 @@ import Login from './components/Login'
 // // import allUsers from './components/allUsersChat' 
 import SingleTrip from './components/SingleTrip'
 // // import selectedChatRoom from './components/selectedChatRoom';
-import Signup from './components/Signup'
+import SignUp from './components/SignUp'
 import NotFound from './components/NotFound';
 
 const App = () => { 
@@ -28,7 +28,7 @@ const App = () => {
 
                     <Switch>
                         <Route path = "/" exact component = { Login } />
-                        <Route path = "/signup" component = { Signup } />
+                        <Route path = "/signup" component = { SignUp } />
                         <Route path = "/singlepage" component = { SingleTrip } />
                         {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
