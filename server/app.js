@@ -11,7 +11,7 @@ const tripRoute = require('./api/trip');
 
 const database = require('./config/database');
 const app = express();
-const server = app.listen(3000, console.log(`Server started on port 3000`))
+const server = app.listen(8080, console.log(`Server started on port 3000`))
 const io = require('socket.io')(server); 
 // handle sockets
 require('./socket/index')(io);
@@ -45,6 +45,6 @@ app.use('/api', userRoute )
 app.use('/api', indexRoute)
 app.use('/api', tripRoute )
 
-const PORT = 3000;
+const PORT = 8080;
 
 //start server
