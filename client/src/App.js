@@ -1,3 +1,4 @@
+//front end
 // container to render all components with routes
 // src/routes.js
 import React from 'react';
@@ -16,6 +17,10 @@ import SingleTrip from './components/SingleTrip'
 // // import selectedChatRoom from './components/selectedChatRoom';
 import SignUp from './components/SignUp'
 import NotFound from './components/NotFound';
+import Main from './components/Main'; //chat
+
+import MessagesList from './components/MessagesList.js';
+
 
 const App = () => { 
     return (
@@ -34,7 +39,8 @@ const App = () => {
                         <Route path = "/dashboard" component = { Dashboard } />
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
                         <Route path= "/singletrip" component = { SingleTrip } />
-                        <Route path = "*" component = { NotFound } />
+                        <Route path ="/channels/:channelId" component = {Main}/>
+                         <Route path = "*" component = { NotFound } />
                     </Switch>
                     </div>
                     <Footer />

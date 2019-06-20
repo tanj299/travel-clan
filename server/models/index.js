@@ -1,12 +1,12 @@
-// 'use strict';
-
-//initialize database
+'use strict';
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
-    host: 'localhost',
-    port: 5432,
-    dialect: 'postgres'
-});
+// //initialize database
+
+// const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
+//     host: 'localhost',
+//     port: 5433,
+//     dialect: 'postgres'
+// });
 
 // const database = {
 //     User: sequelize.import('./User.js'),
@@ -23,4 +23,27 @@ const sequelize = new Sequelize('travelClan', 'postgres', 'password123',{
 // database.Sequelize = Sequelize;
 
 // module.exports = database;
+
+//set up relations
+const Message = require('./message');
+const Channel = require('./channel');
+const Author = require('./author');
+
+Channel.hasMany(Message, {
+    onDelete: 'cascade',
+    hooks: true
+  });
+
+  Author.hasMany(Message);
+  
+  Message.belongsTo(Channel);
+  Message.belongsTo(Author);
+  
+
+   module.exports = {
+    // database,
+    Channel,
+    Message,
+    Author
+  };
 
