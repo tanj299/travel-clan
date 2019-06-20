@@ -41,8 +41,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.get('/', (req, res) => res.send('INDEX'));
 
-app.use('/api', userRoute )
-app.use('/api', indexRoute)
+// app.use('/api', userRoute )
+// app.use('/api', indexRoute)
 app.use('/api', tripRoute )
 
 const PORT = 3000;

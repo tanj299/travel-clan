@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const router = express.Router();
 const { Op } = require('sequelize');
@@ -37,6 +39,9 @@ router.post('/allTrips', async (req, res, next) =>{
 
     
 });
+
+router.use('/channels', require('./channels'));
+router.use('/messages', require('./messages'));
 
 //return all users
 // router.get('/getUsers', (req,res) => {
