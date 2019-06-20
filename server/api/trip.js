@@ -18,8 +18,8 @@ router.get('/allTrips', (req,res) => {
 });
 
 
-router.post('/newTrip', async (req, res, next) =>{
-    const trips = Trip.create({
+router.post('/allTrips', async (req, res, next) =>{
+    const trips = await Trip.create({
         tripname: req.body.tripname,
         currentCity: req.body.currentCity,
         destination: req.body.destination,

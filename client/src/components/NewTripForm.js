@@ -15,6 +15,7 @@ class NewTripForm extends Component {
 		startDate: '',
 		endDate: '',
 	}
+	this.submitData = this.submitData.bind(this);
   }
 
 	handleInputChange = (event) => {
@@ -23,7 +24,8 @@ class NewTripForm extends Component {
 		});
 	}
 
-	handleSubmit() {
+	submitData() {
+		console.log("mystate now", this.state);
 		this.props.addNewTrip(this.state);
 	}
 
@@ -37,7 +39,7 @@ class NewTripForm extends Component {
 							<label className="login-label" htmlFor="tripName">
 								Trip Name
                         </label>
-							<input type="text" name="firstName" placeholder="Name your trip" onChange={this.handleInputChange} />
+							<input type="text" name="tripname" placeholder="Name your trip" onChange={this.handleInputChange} />
 						</div>
 
 						<div className="edit-form">
@@ -51,21 +53,21 @@ class NewTripForm extends Component {
 							<label className="login-label" htmlFor="email">
 								City
                         </label>
-							<input type="text" name="city" placeholder="What city?" onChange={this.handleInputChange} />
+							<input type="text" name="currentCity" placeholder="What city?" onChange={this.handleInputChange} />
 						</div>
 
 						<div className="edit-form">
 							<label className="login-label" htmlFor="startDate">
 								Start Date
                         </label>
-							<input type="text" name="password" placeholder="From ..." onChange={this.handleInputChange} />
+							<input type="text" name="startDate" placeholder="From ..." onChange={this.handleInputChange} />
 						</div>
 
 						<div className="edit-form">
 							<label className="login-label" htmlFor="endDate">
 								End Date
                         </label>
-							<input type="text" name="password" placeholder="To..." onChange={this.handleInputChange} />
+							<input type="text" name="endDate" placeholder="To..." onChange={this.handleInputChange} />
 						</div>
 
 						<div className="button-wrapper">

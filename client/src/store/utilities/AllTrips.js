@@ -42,8 +42,8 @@ export const addNewTripThunk = (trip) => {
     return axios
       .post("/api/allTrips", trip)
       .then(res => res.data)
-      .then(newTrip => dispatch(newTrip))
-      // .then(newTrip => dispatch(addNewTrip(newTrip)))
+      // .then(newTrip => dispatch(newTrip))
+      .then(newTrip => dispatch(addNewTrip(newTrip)))
   }
 }
 
