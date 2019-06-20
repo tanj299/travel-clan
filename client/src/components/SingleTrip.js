@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import {Main} from './Main';
 import { fetchSingleTripThunk } from '../thunks';
 import { connect } from 'react-redux';
 
@@ -23,6 +24,11 @@ class SingleTrip extends Component{
     // console.log("this is single trip",this.props.fetchSingleTrip());
   }
 
+
+
+  // displayChat=()=>{
+  //   this.setState({this.Main})
+  // }
 
   render() {
     console.log('Trip Render', this.props)
@@ -49,6 +55,15 @@ class SingleTrip extends Component{
           )
         })} 
 
+      <div>
+        {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
+       {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
+       <h1>This is single trip</h1>
+        <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
+  
+          {/* {  this.props.singleTrip && this.props.singleTrip } */}
+          {this.props.singleTrip.id}
+          </div>
         </div>
     );
   }

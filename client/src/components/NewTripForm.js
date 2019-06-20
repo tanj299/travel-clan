@@ -4,6 +4,9 @@ import { addNewTripThunk } from '../thunks';
 import { Link } from 'react-router-dom';
 // const Amadeus = require('../amadeus');
 // const amadeus = new Amadeus();
+// import { Link } from 'react-router-dom';
+const Amadeus = require('amadeus');
+const amadeus = new Amadeus();
 
 class NewTripForm extends Component {
   constructor() {

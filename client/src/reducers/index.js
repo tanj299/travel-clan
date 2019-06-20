@@ -4,3 +4,4 @@ export { default as allTrips } from '../store/utilities/AllTrips';
 export { default as allUsers } from '../store/utilities/AllUsers';
 export { default as singleTrip } from '../store/utilities/SingleTrip';
 export { default as singleUser } from '../store/utilities/SingleUser';
+export { default as ChatStore } from '../store/utilities/ChatStore';

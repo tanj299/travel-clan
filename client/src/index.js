@@ -6,11 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
 
-console.log(store)
 ReactDOM.render(
   // anything in the Provider tags (state-wise) can be accessed from the store
   
   <Provider store={store}>
+
     <App />
   </Provider>,  
   document.getElementById('root')
