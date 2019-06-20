@@ -24,13 +24,6 @@ class SingleTrip extends Component{
     // console.log("this is single trip",this.props.fetchSingleTrip());
   }
 
-
-  handleCity = (event) => {
-    this.setState({
-      city: event.target.value
-    })
-  }
-
   handleLatitude = (event) => {
     this.setState({
       latitude: event.target.value
@@ -44,59 +37,55 @@ class SingleTrip extends Component{
   }
 
   // Returns a list of airports and cities matching a given keyword.
-  handleSubmit = (event) => {
-    event.preventDefault(); // prevent default refresh
-    // this.props.fetchAirportsInCity(this.state.city);
-    // console.log("Points of Interest")  
+  handleSubmit(trip){
+    // event.preventDefault(); // prevent default refresh
+    console.log("FUN TRIP!!", trip)
+    this.props.fetchAirportsInCity(trip);
     this.props.fetchPointsOfInterest(this.state.latitude, this.state.longitude);
   }
   
   render() {
     console.log('Trip Render', this.props)
-    const { thisTrip, singleTrip } = this.props
+    const { singleTrip } = this.props
     const myTrip = singleTrip || []
     
     return (
       <div>
         <div>
-        {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
-       {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
-       <h1>This is single trip</h1>
-       <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
+          {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
+          {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
+          <h1>This is single trip</h1>
+          <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
           {this.props.singleTrip.id}
-          </div>
-    
-        <div>
-
-            {myTrip.map((trip, index) => {
+        </div>
+     {/* =================================================================== */}
+        <div>{ myTrip.map((trip, index) => {
           let myDestination = trip.destination // gets New York 
           let myCity = trip.currentCity	// gets NYC 
           // console.log('current destination', myDestination);
           // console.log('current destination', myCity);
-              return (
-			<div>
-				<br></br>	
-			<Link to = '/singletrip'>
-				{trip.destination}
-			</Link>
-			</div>
+          return (
+            <div>
+              <br></br>	
+              <Link to = '/singletrip'>{trip.destination}</Link>
+              {this.setState({
+                city: trip.destination
+              })}
+            </div>
           )
-        })} 
-
-        </div>
-
+          })
+        }</div>
+      {/*================================================================== */}
         <div>
-       <br/>
+          <br/>
+          <form onSubmit= {this.handleSubmit(this.state.city)} >
+            <label> Connect with Airports in: </label>  
+              <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
+              <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
+            <button> Things To Do </button>
+          </form >
         
-        <form onSubmit= {this.handleSubmit} >
-          <label> Connect with Airports in: </label>
-            <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleCity}/>
-          <label> Connect with Airports in: </label>  
-            <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
-            <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
-          <button> Click </button>
-        </form >
-        
+
         {/* Map over All Airports In Designated City */}
         <div>{
           this.props.airportsInCity.map(res => {
@@ -107,6 +96,7 @@ class SingleTrip extends Component{
           }) 
         }</div>
 
+        
         {/* Map over Points of Interest */}
         <div>{
           this.props.pointsOfInterest.map(res => {
