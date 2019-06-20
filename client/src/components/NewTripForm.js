@@ -39,6 +39,7 @@ class NewTripForm extends Component {
 							<label className="login-label" htmlFor="tripName">
 								Trip Name
                         </label>
+						{/* name has to match the state to make onChange work */}
 							<input type="text" name="tripname" placeholder="Name your trip" onChange={this.handleInputChange} />
 						</div>
 
