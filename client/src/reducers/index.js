@@ -4,3 +4,4 @@ export { default as currentTrip } from '../store/utilities/AllTrips';
 export { default as currentUser } from '../store/utilities/AllUsers';
 export { default as thisTrip } from '../store/utilities/SingleTrip';
 export { default as thisUser } from '../store/utilities/SingleUser';
+export { default as amadeusCalls } from '../store/utilities/AmadeusCalls';
