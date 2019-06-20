@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
-// console.log("db",db);
+
 
 const images = [
   'https://designerdoginfo.files.wordpress.com/2013/01/puggle-puppy-4.jpg?w=584',
@@ -10,6 +10,7 @@ const images = [
   'http://4.bp.blogspot.com/-3JeIxWBU7bY/UKjIt8lVpCI/AAAAAAAABx8/YM8piSOwczs/s1600/Schipperke-Puppy.jpg'
 ];
 
+//if the user is not in the dummy data, assign them a random profile image as above
 const getRandomImage = () => images[Math.floor(Math.random() * images.length)];
 
 const author = db.define('author', {

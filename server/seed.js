@@ -12,16 +12,16 @@ const channels = [
 
 const authors = [{
   name: 'Jayson',
-  image: '/images/Jayson.jpg'
+  image: '/images/Gary.jpg'
 }, {
   name: 'Shania',
-  image: '/images/Shania.jpg'
+  image: '/images/Pam.jpg'
 }, {
   name: 'Anupam',
-  image: '/images/Anupam.jpg'
+  image: '/images/batman.jpg'
 }, {
   name: 'Batman',
-  image: '/images/batman.jpeg'
+  image: '/images/Jayson.jpeg'
 }, {
   name: 'Shaina',
   image: '/images/Shaina.jpg'
@@ -72,12 +72,12 @@ const id = () => Math.round(Math.random() * (authors.length - 1)) + 1;
 
 //display random messages from a random person to start
 const messages = [
-  { authorId: id(), content: 'testing!', channelId: 1 },
-  { authorId: id(), content: 'I like Redux!', channelId: 1 },
+  { authorId: id(), content: 'Lets go on a trip!!', channelId: 1 },
+  { authorId: id(), content: 'I like traveling!', channelId: 1 },
   { authorId: id(), content: 'I like React-Redux!', channelId: 1 },
-  { authorId: id(), content: 'I like writing web apps!', channelId: 2 },
-  { authorId: id(), content: 'You should learn JavaScript!', channelId: 2 },
-  { authorId: id(), content: 'JavaScript is pretty great!', channelId: 2 },
+  { authorId: id(), content: 'What do we need to pack?', channelId: 2 },
+  { authorId: id(), content: 'When are we going skiing?!', channelId: 2 },
+  { authorId: id(), content: 'This app is great! Five stars!', channelId: 2 },
   { authorId: id(), content: 'Dogs are great!', channelId: 3 },
   { authorId: id(), content: 'Cats are also great!', channelId: 3 },
   { authorId: id(), content: 'Why must we fight so?', channelId: 3 },

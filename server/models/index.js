@@ -24,6 +24,7 @@ const Sequelize = require('sequelize');
 
 // module.exports = database;
 
+//set up relations
 const Message = require('./message');
 const Channel = require('./channel');
 const Author = require('./author');

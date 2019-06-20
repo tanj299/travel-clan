@@ -8,7 +8,6 @@ const { Channel, Message } = require('../models');
 module.exports = router;
 
 //Getting the already existing channels
-
 // GET /api/channels
 router.get('/', async (req, res, next) => {
   try {

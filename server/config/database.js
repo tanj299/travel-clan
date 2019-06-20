@@ -21,6 +21,8 @@ module.exports = new Sequelize('travelClan', 'postgres', 'maxmax',{
     dialect: 'postgres'
 });
 
+require('../models')
+
 // Channel.hasMany(Message, {
 //     onDelete: 'cascade',
 //     hooks: true
