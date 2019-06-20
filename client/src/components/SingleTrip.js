@@ -20,7 +20,7 @@ class SingleTrip extends Component{
   }
   componentDidMount() {
     this.props.fetchSingleTrip()
-    console.log("this is single trip",this.props.fetchSingleTrip());
+    // console.log("this is single trip",this.props.fetchSingleTrip());
   }
 
 
@@ -28,7 +28,7 @@ class SingleTrip extends Component{
     console.log('Trip Render', this.props)
     const { thisTrip, singleTrip } = this.props
     const myTrip = singleTrip || []
-    console.log('This is the value of myTrip  obj ==================>>>>>',myTrip)
+    // console.log('This is the value of myTrip  obj ==================>>>>>',myTrip)
     return (
     
         <div>
@@ -39,9 +39,12 @@ class SingleTrip extends Component{
 			// console.log('current destination', myDestination);
 			// console.log('current destination', myCity);
           return (
-            <div>{
-              	trip.tripname + 
-              	trip.destination}</div>
+			<div>
+				<br></br>	
+			<Link to = '/singletrip'>
+				{trip.destination}
+			</Link>
+			</div>
           )
         })} 
 

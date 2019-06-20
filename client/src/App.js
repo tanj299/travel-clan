@@ -16,6 +16,7 @@ import SingleTrip from './components/SingleTrip'
 // // import selectedChatRoom from './components/selectedChatRoom';
 import SignUp from './components/SignUp'
 import NotFound from './components/NotFound';
+import NewTripForm from './components/NewTripForm';
 
 const App = () => { 
     return (
@@ -32,6 +33,7 @@ const App = () => {
                         <Route path = "/singletrip" component = { SingleTrip } />
                         {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
+                        <Route exact path = "/addtripform" component = { NewTripForm } />
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
                         <Route path = "*" component = { NotFound } />
                     </Switch>
