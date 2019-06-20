@@ -19,7 +19,6 @@ import SignUp from './components/SignUp'
 import NotFound from './components/NotFound';
 import Main from './components/Main'; //chat
 
-import MessagesList from './components/MessagesList.js';
 
 
 const App = () => { 

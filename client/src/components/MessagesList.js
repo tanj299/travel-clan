@@ -11,16 +11,19 @@ import { withRouter } from 'react-router-dom'
          //we want the channelId to be a number
     const channelId = Number(this.props.match.params.channelId) 
     const messages = this.props.messages
-    console.log(messages)
+    console.log("messages",messages)
     const filteredMessages = messages.filter(
         message => message.channelId === channelId
+        
     )
+    console.log("message",messages)
 
     return (
         <div>
             <ul className="media-list">
                 {filteredMessages.map(message => (
                     <Message message={message} key={message.id} />
+                    
                 ))}
             </ul>
             <NewMessageEntry channelId={ channelId }/>
