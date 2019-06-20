@@ -46,7 +46,7 @@ class Dashboard extends Component {
                 <div className = "list-container">
 
                     <br></br>
-                    <p> This is all my trips </p> 
+                    {/* <p> This is all my trips </p>  */}
                     <Link to="/addtripform">Add Trip</Link>
 
                     <div className = "large-list">
@@ -59,6 +59,7 @@ class Dashboard extends Component {
     }
 }
 
+// remember, the state in mapStateToProps is literally map the state of all trips to the STORE state 
 const mapStateToProps = (state) => {
     return {
         allTrips: state.allTrips 

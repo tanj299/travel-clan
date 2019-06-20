@@ -34,6 +34,7 @@ class SingleTrip extends Component{
         <div>
 
         {myTrip.map((trip, index) => {
+			// key = {trip.id} 
 			let myDestination = trip.destination // gets New York 
 			let myCity = trip.currentCity	// gets NYC 
 			// console.log('current destination', myDestination);

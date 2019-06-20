@@ -30,7 +30,7 @@ class TripList extends Component {
         let trip_list = this.props.tripList.map ( (data, index) => {
             return ( 
             <li className = "inner-item" key = { data.id } >
-                <Link to = { '/' + data.user + '/singletrip/' + data.destination } >
+                <Link to = { '/singletrip'} >
                     <TripInfo tripData={data} />
                 </Link>
             </li>

@@ -4,6 +4,7 @@ import axios from 'axios';
 // ACTION TYPES;
 const FETCH_SINGLE_TRIP = "FETCH_SINGLE_TRIP";
 
+
 // ACTION CREATORS;
 // FETCHES_TRIP_ID [] FROM EXPRESS/POSTGRES SERVER
 const fetchSingleTrip = (trip) => {

@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addNewTripThunk } from '../thunks';
+import { addNewTripThunk } from '../thunks';
 import { Link } from 'react-router-dom';
 // const Amadeus = require('../amadeus');
 // const amadeus = new Amadeus();
 
-export default class NewTripForm extends Component {
+class NewTripForm extends Component {
   constructor() {
     super();
-    this.state = {  }
+    this.state = {  
+		tripname: '',
+		currentCity: '',
+		destination: '',
+		startDate: '',
+		endDate: '',
+	}
   }
 
-	handleOnChange = () => {
+	handleInputChange = (event) => {
 		this.setState ({
-			
+			[event.target.name]: event.target.value 
 		});
 	}
 
@@ -72,10 +78,10 @@ export default class NewTripForm extends Component {
 	}
 };
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     addNewTrip: (TripToPost) => dispatch(addNewTripThunk(TripToPost))
-//   }
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    addNewTrip: (tripToPost) => dispatch(addNewTripThunk(tripToPost))
+  }
+}
 
-// export default connect(null, mapDispatchToProps)(NewTripForm); // we pass in null if we don't use mapStateToProps;
+export default connect(null, mapDispatchToProps)(NewTripForm); // we pass in null if we don't use mapStateToProps;
