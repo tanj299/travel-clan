@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import TripList from './partials/TripList.js';
-import ItineraryList from './partials/ItineraryList';
+import { fetchAllTripsThunk } from '../thunks'
+// import ItineraryList from './partials/ItineraryList';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
     
     constructor(props) {
         super(props);
@@ -33,6 +35,10 @@ export default class Dashboard extends Component {
     //     this.props.fetchAllTrips() 
     // }
 
+    componentDidMount() {
+        this.props.fetchAllTrips();
+    }
+
 
     render() {
         
@@ -40,11 +46,11 @@ export default class Dashboard extends Component {
                 <div className = "list-container">
 
                     <br></br>
-                    <p> This is all my trips </p> 
-                    <Link to="/addTrip">Add Trip</Link>
+                    {/* <p> This is all my trips </p>  */}
+                    <Link to="/addtripform">Add Trip</Link>
 
                     <div className = "large-list">
-                        <TripList tripList = { this.state.dummyData } />
+                        <TripList tripList = { this.props.allTrips } />
                     </div>
 
                     {/* <ItineraryList itineraryList = { this.state.anotherData } /> */}
@@ -52,3 +58,18 @@ export default class Dashboard extends Component {
         )
     }
 }
+
+// remember, the state in mapStateToProps is literally map the state of all trips to the STORE state 
+const mapStateToProps = (state) => {
+    return {
+        allTrips: state.allTrips 
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchAllTrips: () => dispatch(fetchAllTripsThunk())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

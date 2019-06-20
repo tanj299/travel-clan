@@ -19,8 +19,8 @@ import SignUp from './components/SignUp'
 import NotFound from './components/NotFound';
 import Main from './components/Main'; //chat
 
-import MessagesList from './components/MessagesList.js';
 
+import NewTripForm from './components/NewTripForm';
 
 const App = () => { 
     return (
@@ -34,9 +34,10 @@ const App = () => {
                     <Switch>
                         <Route path = "/" exact component = { Login } />
                         <Route path = "/signup" component = { SignUp } />
-                        <Route path = "/singlepage" component = { SingleTrip } />
+                        <Route path = "/singletrip" component = { SingleTrip } />
                         {/* route path should be :user / dashboard but we need backend and store */}
                         <Route path = "/dashboard" component = { Dashboard } />
+                        <Route exact path = "/addtripform" component = { NewTripForm } />
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
                         <Route path= "/singletrip" component = { SingleTrip } />
                         <Route path ="/channels/:channelId" component = {Main}/>

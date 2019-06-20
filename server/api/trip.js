@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const router = express.Router();
 const { Op } = require('sequelize');
@@ -5,14 +7,21 @@ const db = require('../config/database')
 const Trip = require('../models/Trip');
 
 router.get('/allTrips', (req,res) => {
-    res.json({
-        message: 'trip get method'
-    });
+    // res.json({
+    //     message: 'trip get method'
+    // });
+    Trip.findAll()
+        .then(trip => {
+            console.log(trip);
+            res.json(trip);
+        })
+        .catch(err => console.log(err))
+
 });
 
 
-router.post('/newTrip', async (req, res, next) =>{
-    const trips = Trip.create({
+router.post('/allTrips', async (req, res, next) =>{
+    const trips = await Trip.create({
         tripname: req.body.tripname,
         currentCity: req.body.currentCity,
         destination: req.body.destination,
@@ -30,6 +39,9 @@ router.post('/newTrip', async (req, res, next) =>{
 
     
 });
+
+router.use('/channels', require('./channels'));
+router.use('/messages', require('./messages'));
 
 //return all users
 // router.get('/getUsers', (req,res) => {
