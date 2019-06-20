@@ -25,7 +25,7 @@ class SingleTrip extends Component{
   }
 
 
-  handleAirports = (event) => {
+  handleCity = (event) => {
     this.setState({
       city: event.target.value
     })
@@ -43,7 +43,6 @@ class SingleTrip extends Component{
     })
   }
 
-
   // Returns a list of airports and cities matching a given keyword.
   handleSubmit = (event) => {
     event.preventDefault(); // prevent default refresh
@@ -56,7 +55,7 @@ class SingleTrip extends Component{
     console.log('Trip Render', this.props)
     const { thisTrip, singleTrip } = this.props
     const myTrip = singleTrip || []
-    // console.log('This is the value of myTrip  obj ==================>>>>>',myTrip)
+    
     return (
       <div>
         <div>
@@ -64,15 +63,12 @@ class SingleTrip extends Component{
        {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
        <h1>This is single trip</h1>
        <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
-
-        {/* {  this.props.singleTrip && this.props.singleTrip } */}
           {this.props.singleTrip.id}
           </div>
     
         <div>
 
             {myTrip.map((trip, index) => {
-          // key = {trip.id} 
           let myDestination = trip.destination // gets New York 
           let myCity = trip.currentCity	// gets NYC 
           // console.log('current destination', myDestination);
@@ -90,11 +86,11 @@ class SingleTrip extends Component{
         </div>
 
         <div>
-        <h1 className="title"> Your Trip:  {thisTrip.destination}</h1><br/>
+       <br/>
         
         <form onSubmit= {this.handleSubmit} >
           <label> Connect with Airports in: </label>
-            <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleAirports}/>
+            <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleCity}/>
           <label> Connect with Airports in: </label>  
             <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
             <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
