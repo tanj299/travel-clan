@@ -19,6 +19,7 @@ socket.on('new-message', (message) => {
   // store.dispatch(gotMessagesFromServer(message))
   console.log("testing", message)
 })
+
 // socket.on('testing', (message) =>  {
 //   store.dispatch(gotMessagesFromServer(message))
 // })

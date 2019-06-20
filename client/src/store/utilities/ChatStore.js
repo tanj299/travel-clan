@@ -12,25 +12,28 @@ const USER_SET = 'USER_SET'
 // Action Creators =]
 const gotMessagesFromServer = messages => ({
     type: GOT_MESSAGES_FROM_SERVER,
-    messages,
+    messages
 })
 export const gotNewMessage = message => ({
     type: GOT_NEW_MESSAGE,
-    message,
+    message
 })
 //stretch: have this be the username they use when they log in
 export const userSet = userName => ({
     type: USER_SET,
-    payload: userName,
+    payload: userName
 })
 
 // Thunk Creator ;+}
 export const fetchMessages = () => async dispatch => {
     const { data: messages } = await axios.get('/api/messages')
     dispatch(gotMessagesFromServer(messages))
+    // socket.emit('new-message', messages)
+    // return axios
     // .get('api/messages')
     // .then(res => res.data)
-    // .then(this)
+    // .then(messages=> gotMessagesFromServer(messages))
+    
    
 }
 export const sendMessage = message => async (dispatch, getState) => {

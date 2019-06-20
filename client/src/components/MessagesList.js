@@ -5,7 +5,18 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
  class MessagesList extends Component {
+     constructor(props){
+         super(props);
+         this.state={
 
+         }
+
+     }
+
+// componentDidMount =()=>
+// {
+//     state.ChatStore.messages
+// }
 
      render() {
          //we want the channelId to be a number
