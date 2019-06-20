@@ -15,7 +15,9 @@ class SingleTrip extends Component{
   	super(props)
     this.state = {
       data: [],
-      city: ''
+      city: '',
+      latitude: 0,
+      longitude: 0
     };
   }
 
@@ -59,8 +61,9 @@ class SingleTrip extends Component{
         <form onSubmit= {this.handleSubmit} >
           <label> Connect with Airports in: </label>
             <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleAirports}/>
-          <input type="number" placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
-          <input type="number" placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
+          <label> Connect with Airports in: </label>  
+            <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
+            <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
           <button> Click </button>
         </form >
         
@@ -76,22 +79,16 @@ class SingleTrip extends Component{
 
         {/* Map over Points of Interest */}
         <div>{
-          // this.props.pointsOfInterest.map(res => {
-          // return (
-          //   <div> 
-          //     <div> Points Of Interest: { res.name } </div> 
-          //     <div> Latitude: { res.geoCode.latitude } </div> 
-          //     <div> Longitude: { res.geoCode.longitude } </div> 
-          //     <h3> Tags: {res.tags[0]} </h3>
-          //     {/* <div>{
-          //       // res.tags.map( res => {
-          //       //   console.log("tag", res);
-          //         // <div>{ res[0] }</div>
-          //       })
-          //     }</div>  */}
-
-          //   </div> );
-          // }) 
+          this.props.pointsOfInterest.map(res => {
+          return (
+            <div> 
+              <div> Points Of Interest: { res.name } </div> 
+              <div> Latitude: { res.geoCode.latitude } </div> 
+              <div> Longitude: { res.geoCode.longitude } </div> 
+              <div> Description: { res.category } </div> 
+              
+            </div> );
+          }) 
         }</div>
       </div>
     );

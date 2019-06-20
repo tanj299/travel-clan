@@ -1,4 +1,3 @@
-// import axios from 'axios';
 const Amadeus = require('amadeus');
 var amadeus = new Amadeus({
   clientId: 'iCC5eCZJXMAG44IO86tK0lDTWepR2hUp',

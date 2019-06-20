@@ -1,5 +1,5 @@
-// import axios from 'axios';
 const Amadeus = require('amadeus');
+
 var amadeus = new Amadeus({
   clientId: 'iCC5eCZJXMAG44IO86tK0lDTWepR2hUp',
   clientSecret: 'UsgEGpWONqRMl2Tc'
@@ -19,13 +19,14 @@ const fetchPointsOfInterest = (places) => {
 // THUNK CREATORS;
 // Points of Interest
 // What are the popular places in Barcelona (based a geo location and a radius)
-export const fetchPointsOfInterestThunk = (latitude, longitude) => (dispatch) => {
-  return (amadeus.referenceData.locations.pointsOfInterest.get({
-      latitude : latitude,
-      longitude : longitude
-    }).then(res => res.data)
-      .then(places => dispatch(fetchPointsOfInterest(places.data)))
-      .catch(err => console.log(err)));
+export const fetchPointsOfInterestThunk = (latitude, longitude) => async (dispatch) => {
+
+  const {data} = await amadeus.referenceData.locations.airports.get({
+    longitude : longitude,
+    latitude  : latitude
+  })
+    console.log('DATA', data)
+    dispatch(fetchPointsOfInterest(data))
 }
 
 // REDUCER;
