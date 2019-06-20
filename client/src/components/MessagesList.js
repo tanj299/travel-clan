@@ -8,7 +8,8 @@ import { withRouter } from 'react-router-dom'
 
 
      render() {
-    const channelId = Number(this.props.match.params.channelId) // because it's a string "1", not a number!
+         //we want the channelId to be a number
+    const channelId = Number(this.props.match.params.channelId) 
     const messages = this.props.messages
     console.log(messages)
     const filteredMessages = messages.filter(

@@ -9,6 +9,7 @@ export default class Sidebar extends Component {
         <div className="sidebar-header">
           <h3 href="#">
             <div>Clan Chat</div>
+            
             <i alt="Brand" className="glyphicon glyphicon-comment">
             </i>
           </h3>
