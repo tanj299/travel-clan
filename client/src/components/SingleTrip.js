@@ -59,14 +59,14 @@ class SingleTrip extends Component{
         }</div>
 
         {/* Map over All Airports In Designated City */}
-        <div>{
+        {/* <div>{
           this.props.airportsInCity.map(res => {
           return (
             <div> 
               <div> City Code: {  res.address.cityCode} </div> 
             </div> );
           }) 
-        }</div>
+        }</div> */}
       </div>
     );
   }
