@@ -2,7 +2,11 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTripThunk } from '../thunks';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import AmadeusAirports from './AmadeusAirports';
+
+const Zomato = '3c38e45bc11c96e575881ecc7a03d746';
 
 const Amadeus = require('amadeus');
 var amadeus = new Amadeus({
@@ -14,10 +18,9 @@ class SingleTrip extends Component{
   constructor(props){
   	super(props)
     this.state = {
-      currentTrip: '',
-      hotelOffers: [],
-      airportsFromCity: []
-    }
+      data: []
+    };
+    // this.amadeus = this.amadeus.bind(this);
   }
 
   componentDidMount() {
@@ -28,8 +31,7 @@ class SingleTrip extends Component{
   // Get list of hotels by city code
   handleSearchHotelOffers = (event) => {
     this.setState({
-      hotelOffers: 
-        amadeus.shopping.hotelOffers.get({
+      hotelOffers: amadeus.shopping.hotelOffers.get({
         cityCode : event.target.value // Example "MAD"
       })
     })
@@ -37,13 +39,18 @@ class SingleTrip extends Component{
 
   // Returns a list of airports and cities matching a given keyword.
   handleLocations = (event) => {
-    this.setState({
-      airportsFromCity: amadeus.referenceData.location.get({
-        keyword: event.target.value, // i.e. 'lon' <- london
-        subType: Amadeus.location.any
-      })
-    }) 
+    (amadeus.referenceData.locations.get({
+      keyword: event.target.value,
+      subType: 'AIRPORT' // subType: 'AIRPORT,CITY'
+    }).then(function(response){
+      console.log("Response Data", response.data); // first page
+      this.setState({ data: response.data.address})
+      return amadeus.next(response);
+    }).then(function(nextReponse){
+      console.log("Next Response", nextReponse.data); // second page
+    }))
   }
+    
 
   render() {
     console.log('Trip Render', this.props)
@@ -51,50 +58,16 @@ class SingleTrip extends Component{
 
     return (
       <div>
-        <h1 className="title"> Your Trip:  {thisTrip.destination} </h1>
-        {/* <br> */}
-
-        <h3>Get Airports in a City</h3>
+        <h1 className="title"> Your Trip:  {thisTrip.destination}</h1><br/>
         <label> Input City: </label>
         <input type="text" placeholder="i.e. London, Paris, NYC" onChange={this.handleLocations}/>
  
-        Map over All Airports In Designated City
-        <div>{ this.state.airportsFromCity && this.state.airportsFromCity.map(res => {
-          console.log("Iata", res.iataCode);
-          console.log("Detailed", res.detailedName);
-          console.log("Name", res.name);
-          console.log("Address", res.cityName, res.countryName, res.regionCode);
-          
+        {/* Map over All Airports In Designated City */}
+        <div>
+        {this.state.data.map(res => {
           return (
-            <div className="ListComponent"> 
-              <div> IataCode: {res.iataCode} </div> 
-              <div> Detailed Name: {res.detailedName} </div> 
-              <div> Name: {res.name} </div> 
-              <div> Address: {res.cityName}, {res.countryName}
-                    , {res.regionCode} </div> 
-            </div> );
-          }) 
-        }</div>
-
-        
-        <h3>Get Airports in a City</h3>
-        <label> Input City: </label>
-        <input type="text" placeholder="i.e. London, Paris, NYC" onChange={this.handleLocations}/>
- 
-        Map over All Airports In Designated City
-        <div>{ this.state.airportsFromCity && this.state.airportsFromCity.map(res => {
-          console.log("Iata", res.iataCode);
-          console.log("Detailed", res.detailedName);
-          console.log("Name", res.name);
-          console.log("Address", res.cityName, res.countryName, res.regionCode);
-          
-          return (
-            <div className="ListComponent"> 
-              <div> IataCode: {res.iataCode} </div> 
-              <div> Detailed Name: {res.detailedName} </div> 
-              <div> Name: {res.name} </div> 
-              <div> Address: {res.cityName}, {res.countryName}
-                    , {res.regionCode} </div> 
+            <div> 
+              <div> City Code: {res.address.cityCode} </div> 
             </div> );
           }) 
         }</div>
@@ -117,6 +90,10 @@ function mapDispatch(dispatch) {
     fetchTrip: () => dispatch(fetchTripThunk())
   }
 }
+
+SingleTrip.propTypes = {
+  data: PropTypes.array
+};
 
 // Connect Student to the redux-store
 export default connect(mapStateToProps, mapDispatch)(SingleTrip);
