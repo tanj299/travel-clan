@@ -21,28 +21,9 @@ class SingleTrip extends Component{
   }
   componentDidMount() {
     this.props.fetchSingleTrip()
+    // console.log("this is single trip",this.props.fetchSingleTrip());
   }
 
-  // Hotel Search API
-  // Get list of hotels by city code
-  handleSearchHotelOffers = (event) => {
-    this.setState({
-      hotelOffers: 
-        amadeus.shopping.hotelOffers.get({
-        cityCode : event.target.value // Example "MAD"
-      })
-    })
-  }
-
-  // Returns a list of airports and cities matching a given keyword.
-  handleLocations = (event) => {
-    this.setState({
-      airportsFromCity: amadeus.referenceData.location.get({
-        keyword: event.target.value, // i.e. 'lon' <- london
-        subType: Amadeus.location.any
-      })
-    }) 
-  }
 
 
   // displayChat=()=>{
@@ -51,23 +32,41 @@ class SingleTrip extends Component{
 
   render() {
     console.log('Trip Render', this.props)
-    const { thisTrip } = this.props
-
+    const { thisTrip, singleTrip } = this.props
+    const myTrip = singleTrip || []
+    // console.log('This is the value of myTrip  obj ==================>>>>>',myTrip)
     return (
       <div>
+        <div>
         {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
        {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
        <h1>This is single trip</h1>
-     <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
-    
+       <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
 
-    
-
-         
-                    {/* {  this.props.singleTrip && this.props.singleTrip } */}
+        {/* {  this.props.singleTrip && this.props.singleTrip } */}
           {this.props.singleTrip.id}
+          </div>
+    
+        <div>
+
+            {myTrip.map((trip, index) => {
+          // key = {trip.id} 
+          let myDestination = trip.destination // gets New York 
+          let myCity = trip.currentCity	// gets NYC 
+          // console.log('current destination', myDestination);
+          // console.log('current destination', myCity);
+              return (
+			<div>
+				<br></br>	
+			<Link to = '/singletrip'>
+				{trip.destination}
+			</Link>
+			</div>
+          )
+        })} 
+
         </div>
-      // </div>
+        </div>
     );
   }
 };
