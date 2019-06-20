@@ -31,7 +31,7 @@ const removeAllTrips = () => {
 // THUNK CREATORS;
 export const fetchAllTripsThunk = () => (dispatch) => {
   return axios
-    .get('../MOCK_DATA_TRIPS.json') // Mockaroo Data    
+    .get('/api/allTrips') // Mockaroo Data    
     .then(res => res.data)
     .then(thisTrip => dispatch(fetchAllTrips(thisTrip)))
     .catch(err => console.log(err));
@@ -40,10 +40,10 @@ export const fetchAllTripsThunk = () => (dispatch) => {
 export const addNewTripThunk = (trip) => {
   return function(dispatch) {
     return axios
-      // .post("localhost:3000/api/trip", trip)
+      .post("/api/allTrips", trip)
       .then(res => res.data)
-      .then(newTrip => dispatch(newTrip))
-      // .then(newTrip => dispatch(addNewTrip(newTrip)))
+      // .then(newTrip => dispatch(newTrip))
+      .then(newTrip => dispatch(addNewTrip(newTrip)))
   }
 }
 
@@ -64,3 +64,6 @@ export default (state = [], action) => {
       return state;
   }
 }
+
+
+// console.log("my store", fetchAllTrips);

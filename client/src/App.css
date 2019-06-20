@@ -140,6 +140,34 @@ nav a {
 	width: 100%;
 }
 
+.list-container {
+  background-color: #dcf8f9;
+  padding-bottom: 45px;
+}
+
+.item_list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.large-list .inner-item {
+  padding: 35px 35px;
+  text-align: center;
+  background-color: #FFF;
+  margin: 2.5px;
+  border-radius: 30px;
+}
+
+.item_sm .edit {
+  display: block;
+  font-size: 15px;
+  padding: 7px;
+  font-weight: bolder;
+  margin-top: 7px;
+  text-transform: UPPERCASE;
+}
+
 .button {
 	cursor: pointer;
 	width: 100%;

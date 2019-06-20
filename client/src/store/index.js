@@ -9,7 +9,7 @@ import * as reducers from '../reducers';
 // Construct Redux Store;
 const rootReducer = combineReducers(reducers);
 const logger = createLogger({collasped:true});
-const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
+const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger))
 const store = createStore(rootReducer, middleware);
 
 export default store; 

@@ -1,5 +1,6 @@
-// container to render all components with api route
-// src/
+//front end
+// container to render all components with routes
+// src/routes.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -9,34 +10,44 @@ import Footer from './components/partials/Footer.js';
 import './App.css'; // import css
 
 // import components 
-import Login from './components/Login' 
+import Dashboard from './components/Dashboard'
+import Login from './components/Login'
+// // import allUsers from './components/allUsersChat' 
 import SingleTrip from './components/SingleTrip'
+// // import selectedChatRoom from './components/selectedChatRoom';
 import SignUp from './components/SignUp'
+import NotFound from './components/NotFound';
+import Main from './components/Main'; //chat
+
+
+import NewTripForm from './components/NewTripForm';
 
 const App = () => { 
-  return (
-    <div className = "App">
-      <Router>
-        <div>
-          <Navbar /> 
-          <div className="page-body">      
-
-          <Switch>
-            <Route path = "/" exact component = { Login } />
-            <Route path = "/signup" component = { SignUp } />
-            {/* <Route path = "/allTrips" component = { AllTrips } />
-            <Route path = "/allTrips/user/:id" component = { AllTrips } /> */}
-            <Route path = "/singletrip" component = { SingleTrip } />
+    return (
+        <div className = "App">
             
-            <Route path = "/singletrip/user/:id" component = { SingleTrip } />
-            {/* <Route path = "*" component = { notFound } /> */}
-          </Switch>
+            <Router>
+                <div>
+                    <Navbar /> 
+                    <div className="page-body">      
 
-          </div>
-          <Footer />
+                    <Switch>
+                        <Route path = "/" exact component = { Login } />
+                        <Route path = "/signup" component = { SignUp } />
+                        <Route path = "/singletrip" component = { SingleTrip } />
+                        {/* route path should be :user / dashboard but we need backend and store */}
+                        <Route path = "/dashboard" component = { Dashboard } />
+                        <Route exact path = "/addtripform" component = { NewTripForm } />
+                        {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
+                        <Route path= "/singletrip" component = { SingleTrip } />
+                        <Route path ="/channels/:channelId" component = {Main}/>
+                         <Route path = "*" component = { NotFound } />
+                    </Switch>
+                    </div>
+                    <Footer />
+                </div>
+            </Router>
         </div>
-      </Router>
-    </div>
   ); 
 }
 
