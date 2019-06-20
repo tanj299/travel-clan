@@ -1,7 +1,7 @@
 //import sockets
 import io from 'socket.io-client';
-//import store
-import store, { gotNewMessage  } from './store/utilities/ChatStore'
+import store from './store'
+import { gotNewMessage  } from './store/utilities/ChatStore'
 //import store,{gotMessagesFromServer} from './store/utilities/ChatStore'
 
 //can be either option but this sets up the socket to the local build
@@ -15,7 +15,14 @@ socket.on('connect', () => {
 
 //when there is a new message, dispatch it to the store
 socket.on('new-message', (message) => {
+
+  //  console.log("store",store);
   store.dispatch(gotNewMessage(message))
+  // return(dispatch)=>
+  // {
+  //   dispatch(gotNewMessage(message))
+  // }
+
   // store.dispatch(gotMessagesFromServer(message))
   console.log("testing", message)
 })
