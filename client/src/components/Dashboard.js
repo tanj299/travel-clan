@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TripList from './partials/TripList.js';
 import { fetchAllTripsThunk } from '../thunks'
-// import ItineraryList from './partials/ItineraryList';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -31,30 +30,22 @@ class Dashboard extends Component {
         }
     }
 
-    // componentDidMount () {
-    //     this.props.fetchAllTrips() 
-    // }
-
     componentDidMount() {
         this.props.fetchAllTrips();
     }
 
 
     render() {
-        
         return (
-                <div className = "list-container">
+            <div className = "list-container">
 
-                    <br></br>
-                    {/* <p> This is all my trips </p>  */}
-                    <Link to="/addtripform">Add Trip</Link>
+                <br></br>
+                <Link to="/addtripform">Add Trip</Link>
 
-                    <div className = "large-list">
-                        <TripList tripList = { this.props.allTrips } />
-                    </div>
-
-                    {/* <ItineraryList itineraryList = { this.state.anotherData } /> */}
+                <div className = "large-list">
+                    <TripList tripList = { this.props.allTrips } />
                 </div>
+            </div>
         )
     }
 }
