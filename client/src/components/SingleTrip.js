@@ -80,9 +80,9 @@ class SingleTrip extends Component{
       return (
 			<div>
 				<br></br>	
-			<Link to = '/singletrip'>
+			{/* <Link to = '/singletrip'>
 				{trip.destination}
-			</Link>
+			</Link> */}
 			</div>
           )
         })} 

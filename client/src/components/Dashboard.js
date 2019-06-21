@@ -50,6 +50,7 @@ class Dashboard extends Component {
                     {/* <div className = "button-wrapper"> */}
                         <div className = "button"> 
                             <Link to="/addtripform">Add Trip</Link>
+                            
                         </div>
                     {/* </div> */}
                     <div className = "large-list">

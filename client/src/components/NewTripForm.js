@@ -70,7 +70,10 @@ class NewTripForm extends Component {
 
 						<div className="button-wrapper">
 							{(this.state.displayErrorMessage) && (<p className="error-message"> Please Fill All Fields </p>)}
+						<Link to='/dashboard'>
 							<input type="submit" onClick={this.submitData} className="button" value="Confirm" />
+							</Link>
+
 						</div>
 					</div>
 			</div>
