@@ -62,44 +62,37 @@ class SingleTrip extends Component{
     return (
       <div>
         <div>
-        {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
-       {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
-       <h1>This is single trip</h1>
-       <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
+          <p className = "myChatBtn"><Link to = "/channels/:channelId"> Need a Clan? Chat Here!</Link> </p>
           {this.props.singleTrip.id}
-          </div>
+        </div>
     
         <div>
+          
+        {/* ================================================================ */}
+          {myTrip.map((trip, index) => {
+            let myDestination = trip.destination // gets New York 
+            let myCity = trip.currentCity	// gets NYC 
 
-            {myTrip.map((trip, index) => {
-          let myDestination = trip.destination // gets New York 
-          let myCity = trip.currentCity	// gets NYC 
-          // console.log('current destination', myDestination);
-          // console.log('current destination', myCity);
+            return (
+              <div>
+                <br></br>	
+              </div>)
+            }
+          )} </div>
 
-      return (
-			<div>
-				<br></br>	
-			{/* <Link to = '/singletrip'>
-				{trip.destination}
-			</Link> */}
-			</div>
-          )
-        })} 
-
-        </div>
-
+        {/* ================================================================ */}
+          
         <div>
-       <br/>
         
         <form onSubmit= {this.handleSubmit} >
-          <label className = "login-label"> Connect with Airports in: </label>
-            <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleCity}/>
-          <label> Connect with Airports in: </label>  
+          <h2 className = "places"> Find Places to Visit </h2>
+          <label className = "login-label"> Enter Coordinates </label>
+            {/* <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleCity}/>
+            <label> Connect with Airports in: </label>   */}
             <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
             <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
             <div className = "button-wrapper">
-               <button className = "button"> Click </button>
+               <button className = "myTripBtn"> Find Places to Visit </button>
             </div>
         </form >
         
@@ -112,9 +105,28 @@ class SingleTrip extends Component{
             </div> );
           }) 
         }</div>
+          {/* Map over Points of Interest */}
+          <div>{
+            this.props.pointsOfInterest.map(res => {
+              console.log(res);
+              return (
+                <div className="pointsOfInterest">
+                  <div> {res.address.cityName}, {res.address.countryName} </div>
 
+                  <div> Type: {res.name} </div>
+                  <div> Traveler's Score {
+                    res.analytics.travelers.score > 5 ? <span id="recommend"> RECOMMENDED </span> :
+                      <span id="notRecommend"> NOT RECOMMENDED </span>
+                  }</div>
+                  <div> Flight's Score {
+                    res.analytics.flights.score > 5 ? <span id="recommend"> RECOMMENDED </span> :
+                      <span id="notRecommend"> NOT RECOMMENDED </span>
+                  }</div>
+                </div>);
+            })
+          }</div>
         {/* Map over Points of Interest */}
-        <div>{
+        {/* <div>{
           this.props.pointsOfInterest.map(res => {
             return (
               <div className = "login-form">
@@ -127,7 +139,7 @@ class SingleTrip extends Component{
               </div> 
               </div>);
             }) 
-          }</div>
+          }</div> */}
         </div>
         </div>
     );
