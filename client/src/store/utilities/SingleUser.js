@@ -16,7 +16,7 @@ const fetchUser = (user) => {
 // THUNK CREATORS;
 export const fetchUserThunk = () => (dispatch) => {
   return axios
-    .get('/routes/users')    
+    .get('/api/users')    
     .then(res => res.data)
     .then(thisUser => dispatch(fetchUser(thisUser)))
     .catch(err => console.log(err));
