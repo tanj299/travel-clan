@@ -60,6 +60,11 @@ h1,h2,h3,h4,h5,h6,
   	font-family:  sans-serif;
 }
 
+.marginTop {
+	margin: auto;
+	margin-top: 100px;
+	width: 90%;
+}
 
 button {
 	cursor: pointer;
@@ -105,11 +110,6 @@ nav a {
 	top: 15px;
 }
 
-.marginTop {
-	margin: auto;
-	margin-top: 100px;
-	width: 90%;
-}
 
 .button-wrapper {
 	display: flex;
@@ -207,6 +207,16 @@ nav a {
 	border-radius: 5px;
 }
 
+.AddTrip {
+	margin-top: 100px;
+	background-color: rgb(111, 235, 246);
+	max-height: 100%;
+	max-width: 100%;
+	padding: 20px;
+}
+.listContainer{
+	margin-top:500px;
+}
 .button:hover {
 	background-color: #54cbcf
 }

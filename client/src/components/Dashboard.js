@@ -37,12 +37,12 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className = "list-container">
+            <div >
 
                 <br></br>
-                <Link to="/addtripform">Add Trip</Link>
+                <p className="AddTrip"><Link to="/addtripform">Add Trip</Link></p>
 
-                <div className = "large-list">
+                <div>
                     <TripList tripList = { this.props.allTrips } />
                 </div>
             </div>
