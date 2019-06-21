@@ -49,8 +49,10 @@ export class ChannelList extends Component {
     }
 }
 
-const mapState = state => ({
-    messages: state.ChatStore.messages,
-})
+const mapState = state => {
+    console.log(state)
+    return ({ 
+    messages: state.ChatStore.messages
+})}
 
-export default withRouter(connect(mapState)(ChannelList))
+export default withRouter(connect(mapState,null)(ChannelList))

@@ -43,12 +43,15 @@ class SingleTrip extends Component{
     })
   }
 
+
   // Returns a list of airports and cities matching a given keyword.
   handleSubmit = (event) => {
     event.preventDefault(); // prevent default refresh
-    // this.props.fetchAirportsInCity(this.state.city);
+    let currentCity = this.props.fetchAirportsInCity(this.state.city);
+  
     // console.log("Points of Interest")  
-    this.props.fetchPointsOfInterest(this.state.latitude, this.state.longitude);
+    this.props.fetchPointsOfInterest(currentCity.geoCode, currentCity.geoCode);
+    // console.log("does this print", currentCity)
   }
   
   render() {
@@ -73,7 +76,8 @@ class SingleTrip extends Component{
           let myCity = trip.currentCity	// gets NYC 
           // console.log('current destination', myDestination);
           // console.log('current destination', myCity);
-              return (
+
+      return (
 			<div>
 				<br></br>	
 			<Link to = '/singletrip'>
@@ -89,12 +93,14 @@ class SingleTrip extends Component{
        <br/>
         
         <form onSubmit= {this.handleSubmit} >
-          <label> Connect with Airports in: </label>
+          <label className = "login-label"> Connect with Airports in: </label>
             <input type="text" placeholder="Input city i.e. London, Paris, NYC" onChange={this.handleCity}/>
           <label> Connect with Airports in: </label>  
             <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
             <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
-          <button> Click </button>
+            <div className = "button-wrapper">
+               <button className = "button"> Click </button>
+            </div>
         </form >
         
         {/* Map over All Airports In Designated City */}
@@ -111,13 +117,15 @@ class SingleTrip extends Component{
         <div>{
           this.props.pointsOfInterest.map(res => {
             return (
-              <div> 
-                <div> Points Of Interest: { res.name } </div> 
-                <div> Latitude: { res.geoCode.latitude } </div> 
-                <div> Longitude: { res.geoCode.longitude } </div> 
-                <div> Description: { res.category } </div> 
-                
-              </div> );
+              <div className = "login-form">
+              <div className = "edit-form"> 
+                <p> Points Of Interest: { res.name } </p> 
+                <p> Latitude: { res.geoCode.latitude } </p> 
+                <p> Longitude: { res.geoCode.longitude } </p> 
+                <p> Should you go: { res.analytics.travelers.score < 5 ? <span className="notRecommended"> Not Recommended </span> : <span className = "recommended"> Yes </span> }</p>
+                <p> Timezone: { res.timeZoneOffset } </p> 
+              </div> 
+              </div>);
             }) 
           }</div>
         </div>

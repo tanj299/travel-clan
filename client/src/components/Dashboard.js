@@ -47,8 +47,11 @@ class Dashboard extends Component {
 
                     <br></br>
                     {/* <p> This is all my trips </p>  */}
-                    <Link to="/addtripform">Add Trip</Link>
-
+                    {/* <div className = "button-wrapper"> */}
+                        <div className = "button"> 
+                            <Link to="/addtripform">Add Trip</Link>
+                        </div>
+                    {/* </div> */}
                     <div className = "large-list">
                         <TripList tripList = { this.props.allTrips } />
                     </div>

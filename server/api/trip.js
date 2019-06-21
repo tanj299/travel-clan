@@ -19,6 +19,24 @@ router.get('/allTrips', (req,res) => {
 
 });
 
+router.get('/allTrips/:id', async (req, res, next) => {
+    // res.json({
+    //     message: 'trip get method'
+    // });
+
+    try {
+        let trip = await trips.findById(req.params.id);
+        if(trip) {
+            res.json(trip);
+        }
+        else {
+            res.status(404).send('Trip not found'); 
+        }
+    }
+    catch(error) {
+        next(error);
+    }
+});
 
 router.post('/allTrips', async (req, res, next) =>{
     const trips = await Trip.create({

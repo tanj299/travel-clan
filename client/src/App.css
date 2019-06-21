@@ -178,6 +178,17 @@ nav a {
 	border-radius: 5px;
 }
 
+
+.small-button {
+	cursor: pointer;
+	max-width: 50%;
+	max-height: 50%;
+	border: none;
+	background-color: #91f1f5; 
+	font-size: 15px; 
+	border-radius: 5px;
+}
+
 .button:hover {
 	background-color: #54cbcf
 }
@@ -194,4 +205,10 @@ footer a {
 	color: #888;
 }
 
+.notRecommended {
+	color: red
+}
 
+.recommended {
+	color: greenyellow;
+}
