@@ -15,11 +15,7 @@
 // }
 //initialize database
 const Sequelize = require('sequelize');
-module.exports = new Sequelize('travelClan', 'postgres', 'maxmax',{
-    host: 'localhost',
-    port: 5432,
-    dialect: 'postgres'
-});
+module.exports = new Sequelize('postgres://postgres_user2:password@localhost:5432/travelClan');
 
 require('../models')
 
