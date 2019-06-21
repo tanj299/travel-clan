@@ -68,24 +68,47 @@ button {
 /* navigation bar - partials */
 
 nav {
-	padding: 0px 20px;
-	display: flex;
-	justify-content: flex-end;
+	/* display: flex; */
 	box-shadow: 0px 8px 10px -5px rgb(6, 105, 72);
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	/* padding: 20px; */
 }
 
+.myTripHead {
+	font-size: 2rem;
+}
+
+h2.places {
+	font-size: 1rem;
+}
 nav a {
-	padding: 24px 8px;
+	padding: 20px;
+	margin-top: 20px;
 	text-decoration: none;
 	font-weight: bolder;
 	color: #67678a;
 	margin: 3px;
 }
+.navFloatLeft{
+	/* background-color: rgb(200, 200, 200); */
+	position: absolute;
+	left: 0;
+}
+.navFloatRight{
+	position: absolute;
+	right: 0;
+}
+.navFloatLeft,.navFloatRight{
+	top: 15px;
+}
 
-/* left aligns `Home` */
-.home-link {
-	margin: auto auto auto 0px;
+.marginTop {
+	margin: auto;
+	margin-top: 100px;
+	width: 90%;
 }
 
 .button-wrapper {
@@ -98,6 +121,11 @@ nav a {
 	justify-content: flex-end;
 }
 
+.nameEntry {
+	/* position: absolute;
+	bottom: 0; */
+	
+}
 /* login component */
 
 .login-wrapper {
@@ -110,14 +138,15 @@ nav a {
 	box-shadow: 0px 10px 25px -5px #aaa;
 	border-top: solid 6px #00f7ff;
 	position: relative;
+	top: 100px;
 	border-radius: 5px;
 }
 
 .edit-form {
 	width: 85%;
  	margin: auto;
-  	position: relative;
-  	padding: 15px;
+	position: relative;
+	padding: 15px;
 }
 
 .login-form .edit-form {
@@ -184,8 +213,8 @@ nav a {
 /* footer - partials */
 
 footer {
-  	background-color: #f3f3f3;
-  	padding: 35px 35px;
+	background-color: #f3f3f3;
+	padding: 35px 35px;
 }
 
 footer a {
@@ -194,4 +223,52 @@ footer a {
 	color: #888;
 }
 
+/* Single trip page */
+.myTripBtn{
+	width: 200px;
+	margin-top: 30px;
+}
+.myTripBtn a, button.myChatBtn{
+	background-color: #f3f3f3;
+	padding: 15px 5px;
+	border-radius: 20px;
+	text-align: center;
+	text-decoration: none;
+}
+a:hover, button.myChatBtn:hover{
+	background-color: #9900ff;
+	color: white;
+}
 
+button.myChatBtn{
+	width: 200px;
+	margin-top: 30px;
+	margin-left: 20px;
+	outline: none;
+	border: none;
+}
+
+#recommend {
+	color: green;
+}
+
+#notRecommend {
+	color: red;
+}
+
+.pointsOfInterest {
+	background-color: #91f1f5;
+	padding: 50px;
+	max-width: 100%;
+	max-height: 100%;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 100px;
+	width: 40%;
+	margin: 10px;
+	padding-left: 100px;
+	padding-right: 0px;
+}
+
+.pointsOfInterest:hover {
+	background-color: #67678a;
+}

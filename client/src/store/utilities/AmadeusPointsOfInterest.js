@@ -19,13 +19,11 @@ const fetchPointsOfInterest = (places) => {
 // THUNK CREATORS;
 // Points of Interest
 // What are the popular places in Barcelona (based a geo location and a radius)
-export const fetchPointsOfInterestThunk = (latitude, longitude) => async (dispatch) => {
-
+export const fetchPointsOfInterestThunk = (latitude, longitude) => async (dispatch) =>{
   const {data} = await amadeus.referenceData.locations.airports.get({
     longitude : longitude,
     latitude  : latitude
   })
-    console.log('DATA', data)
     dispatch(fetchPointsOfInterest(data))
 }
 

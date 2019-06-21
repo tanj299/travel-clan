@@ -8,7 +8,7 @@ export default class Navbar extends Component {
     return (
       <nav>
         {/* <h3># channelname goes here</h3> */}
-        <NameEntry/>
+        
         
       </nav>
     );

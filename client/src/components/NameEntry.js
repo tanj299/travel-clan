@@ -7,6 +7,7 @@ and this will be uneccesary.
 
 import React from 'react'
 import { connect } from 'react-redux'
+import '../App.css'
 
 
 import { userSet } from '../thunks'
@@ -24,7 +25,7 @@ class NameEntry extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="nameEntry">
                 <label htmlFor="name">Your name:</label>
                 <input
                     name="name"

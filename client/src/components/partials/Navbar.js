@@ -5,12 +5,14 @@ class Navbar extends Component {
     render() {
         return (
             <nav>
-                <Link to = "/" className = "home-link">
-                    Home
-                </Link>
-                <Link to = "/singletrip"> Single Trip - Test </Link>
-                <Link to = "/dashboard"> Dashboard </Link>
-                <Link to = "/signup"> Sign Up </Link>
+                <div className="navFloatLeft">
+                    <Link to = "/">Home</Link>
+                </div>
+                <div className="navFloatRight">
+                    <Link to = "/singletrip"> Single Trip - Test </Link>
+                    <Link to = "/dashboard"> Dashboard </Link>
+                    <Link to = "/signup"> Sign Up </Link>
+                </div>
             </nav>
         )
     }

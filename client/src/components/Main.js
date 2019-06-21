@@ -3,7 +3,8 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import Sidebar from './Sidebar';
-import Navbar from './Navbar';
+import Navbar from './partials/Navbar';
+import NameEntry from './NameEntry';
 import MessagesList from './MessagesList';
 // import Main from './Main';
 import { fetchMessages } from '../thunks'
@@ -19,10 +20,11 @@ export class Main extends Component {
   
   render () {
     return (
-      <div>
+      <div className="marginTop">
         <Sidebar />
         <Navbar />
         <main>
+          <NameEntry/>
           <Switch>
             <Route path="/channels/:channelId" component={MessagesList} />
             {/* <Route path="/Main" component={MessagesList} /> */}

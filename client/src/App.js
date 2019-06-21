@@ -41,7 +41,7 @@ const App = () => {
                         {/* <Route path = "/dashboard/user/:id" component = { Dashboard } /> */}
                         <Route path= "/singletrip" component = { SingleTrip } />
                         <Route path ="/channels/:channelId" component = {Main}/>
-                         <Route path = "*" component = { NotFound } />
+                        <Route path = "*" component = { NotFound } />
                     </Switch>
                     </div>
                     <Footer />

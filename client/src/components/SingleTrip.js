@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import { fetchSingleTripThunk, fetchAirportsInCityThunk, fetchPointsOfInterestThunk } from '../thunks';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AmadeusAirports from './AmadeusAirports';
-
-const Zomato = '3c38e45bc11c96e575881ecc7a03d746';
-
 
 class SingleTrip extends Component{
   constructor(props){
@@ -19,9 +15,16 @@ class SingleTrip extends Component{
       longitude: 0
     };
   }
+
   componentDidMount() {
     this.props.fetchSingleTrip()
     // console.log("this is single trip",this.props.fetchSingleTrip());
+  }
+
+  handleCity = (event) => {
+    this.setState({
+      city: event.target.value
+    })
   }
 
   handleLatitude = (event) => {
@@ -37,10 +40,11 @@ class SingleTrip extends Component{
   }
 
   // Returns a list of airports and cities matching a given keyword.
-  handleSubmit(trip){
-    // event.preventDefault(); // prevent default refresh
-    console.log("FUN TRIP!!", trip)
-    this.props.fetchAirportsInCity(trip);
+  handleSubmit = (event) => {
+    event.preventDefault(); // prevent default refresh
+    // this.props.fetchAirportsInCity(this.state.city);
+    console.log(this.handleLatitude , "LATITUDE");
+    console.log(this.handleLongitude , "LONGITUDE");
     this.props.fetchPointsOfInterest(this.state.latitude, this.state.longitude);
   }
   
@@ -49,69 +53,57 @@ class SingleTrip extends Component{
     const { singleTrip } = this.props
     const myTrip = singleTrip || []
     
-    return (
-      <div>
+    return ( <div className="marginTop">
         <div>
-          {/* <h1 className="title"> Trip: {thisTrip.destination}</h1> */}
-          {/* <button onClick = {this.displayChat}>Chat Here!</button> */}
-          <h1>This is single trip</h1>
-          <p><Link to = "/channels/:channelId">ChatHere!</Link> </p>
+          <h1 className="myTripHead">MY TRIPS</h1>
+          <p className="myTripBtn"><Link to = "/channels/:channelId"> Need a Clan? Chat Here. </Link> </p>
           {this.props.singleTrip.id}
         </div>
-     {/* =================================================================== */}
+
+      {/* =================================================================== */}
         <div>{ myTrip.map((trip, index) => {
-          let myDestination = trip.destination // gets New York 
-          let myCity = trip.currentCity	// gets NYC 
-          // console.log('current destination', myDestination);
-          // console.log('current destination', myCity);
           return (
             <div>
               <br></br>	
               <Link to = '/singletrip'>{trip.destination}</Link>
-              {this.setState({
-                city: trip.destination
-              })}
-            </div>
-          )
+            </div>)
           })
         }</div>
+
       {/*================================================================== */}
         <div>
           <br/>
-          <form onSubmit= {this.handleSubmit(this.state.city)} >
-            <label> Connect with Airports in: </label>  
+          <form onSubmit= {this.handleSubmit} >
+            <h2 className="places">Find Places To Visit</h2>
+            <label> Enter Coordinates </label>  
               <input placeholder="39.961388 Latitude" onChange={this.handleLatitude}/>
               <input placeholder="39.961388 Longitude" onChange={this.handleLongitude}/>
-            <button> Things To Do </button>
+            <button className="myChatBtn"> Find Places to Visit </button>
           </form >
         
+          {/* Map over Points of Interest */}
+          <div>{
+            this.props.pointsOfInterest.map(res => {
+              console.log(res);
+              return (
+                <div className="pointsOfInterest"> 
+                  <div> { res.address.cityName }, {res.address.countryName} </div> 
 
-        {/* Map over All Airports In Designated City */}
-        <div>{
-          this.props.airportsInCity.map(res => {
-          return (
-            <div> 
-              <div> City Code: {res.address.cityCode} </div> 
-            </div> );
-          }) 
-        }</div>
+                  <div> Type: { res.name } </div> 
+                  <div> Traveler's Score {
+                    res.analytics.travelers.score > 5 ? <span id="recommend"> RECOMMENDED </span> :
+                    <span id="notRecommend"> NOT RECOMMENDED </span>
+                  }</div> 
 
-        
-        {/* Map over Points of Interest */}
-        <div>{
-          this.props.pointsOfInterest.map(res => {
-            return (
-              <div> 
-                <div> Points Of Interest: { res.name } </div> 
-                <div> Latitude: { res.geoCode.latitude } </div> 
-                <div> Longitude: { res.geoCode.longitude } </div> 
-                <div> Description: { res.category } </div> 
-                
-              </div> );
-            }) 
-          }</div>
+                  <div> Flight's Score {
+                    res.analytics.flights.score > 5 ? <span id="recommend"> RECOMMENDED </span> :
+                    <span id="notRecommend"> NOT RECOMMENDED </span>
+                  }</div> 
+                </div> );
+              }) 
+            }</div>
         </div>
-        </div>
+      </div>
     );
   }
 };
@@ -138,5 +130,5 @@ SingleTrip.propTypes = {
   city: PropTypes.string
 };
 
-// Connect Student to the redux-store
+// Connect SingleTrip to the redux-store
 export default connect(mapStateToProps, mapDispatch)(SingleTrip);

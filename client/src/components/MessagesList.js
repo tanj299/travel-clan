@@ -19,7 +19,7 @@ import { withRouter } from 'react-router-dom'
     console.log("message",messages)
 
     return (
-        <div>
+        <div className="insideMessages">
             <ul className="media-list">
                 {filteredMessages.map(message => (
                     <Message message={message} key={message.id} />
