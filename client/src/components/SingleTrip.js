@@ -50,7 +50,7 @@ class SingleTrip extends Component{
     let currentCity = this.props.fetchAirportsInCity(this.state.city);
   
     // console.log("Points of Interest")  
-    this.props.fetchPointsOfInterest(currentCity.geoCode, currentCity.geoCode);
+    this.props.fetchPointsOfInterest(this.state.latitude, this.state.longitude);
     // console.log("does this print", currentCity)
   }
   
