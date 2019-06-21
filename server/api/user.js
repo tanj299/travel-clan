@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const trips = [{id: 1, firstname: "Peter", lastname: "Parker", email: "peterparker@gmail.com", destination: "Queens", startDate: "01/01/20", endDate: "12/31/20", }] 
 const { Op } = require('sequelize');
 const db = require('../config/database')
 const User = require('../models/User');
 
 router.get('/', (req,res) => {
     res.json({
+        // trips
         message: 'user get method'
     });
 });

@@ -11,3 +11,173 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* global */
+
+body {
+  height: 100vh;
+} 
+
+ #app {
+  height: 100%;
+}
+
+#app > div {
+  height: 100%;
+  display: flex;
+}
+
+/* sidebar */
+
+.sidebar {
+  background-color: #91f1f5;
+  /* #2B303B; */
+  color:rgb(65, 65, 65);
+  /* #AFB1B6; */
+  z-index: 2;
+  font-family: 'Teko', sans-serif;
+}
+
+.sidebar-header {
+  font-family: 'Teko', sans-serif;
+  height: 53px;
+  width: 220px;
+  /* background-color: #303641; */
+  border-bottom: 1px solid gray;
+  color:  rgb(65, 65, 65);
+}
+
+.sidebar-header h3 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 12px;
+}
+
+.sidebar-header h3 div {
+  margin-right: 10px;
+}
+
+.sidebar h5 {
+  /* Channels */
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Teko', sans-serif;
+  margin-left: 16px;
+}
+
+.sidebar ul {
+  text-transform: lowercase;
+  font-family: 'Teko', sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul li {
+  height: 28px;
+  width: 205px;
+}
+
+.sidebar ul li a {
+  color: black;
+   /* #AFB1B6; */
+  padding-left: 16px;
+  padding-top: 3px;
+  display: list-item;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a:focus {
+  color: #AFB1B6;
+  background-color: #91f1f5; 
+  /* #91f1f5 303641*/
+  text-decoration: none;
+}
+
+.sidebar ul li a.active {
+  background-color: #91f1f5;
+  color: red;
+  /* #D4D5D8; */
+  border-radius: 0 5px 5px 0;
+}
+
+.sidebar ul li a span:first-child {
+  margin-right: 10px;
+}
+
+/* nav */
+
+nav {
+  position: fixed;
+  height: 53px;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  border-bottom: 1px solid gray;
+  display: flex;
+  align-items: center;
+}
+
+nav h3 {
+  margin: 0 0 0 240px;
+  flex: 1 1 auto;
+}
+
+nav form {
+  margin: 0 10px 0 0;
+}
+
+/* main */
+
+main {
+  margin: 78px 25px 25px 25px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+main .media-list {
+  overflow-y: scroll;
+  flex: 1 1 auto;
+}
+
+main .media img {
+  height: 64px;
+  width: 64px;
+}
+
+main .media-object {
+  border-radius: 5px;
+}
+
+main > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* message form */
+
+#new-message-form {
+  /* position: relative; */
+  text-align: center;
+}
+
+#new-message-form .form-control {
+  border-width: 3px 1.5px 3px 3px;
+  padding: 14px 20px;
+  
+}
+#new-message-form .placeholder {
+  border-width: 3px 1.5px 3px 3px;
+  padding: 14px 20px;
+  font-size: large;
+  color:black;
+
+  
+}
+
+#new-message-form.btn {
+  border-width: 3px;
+}

@@ -5,9 +5,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
 # DS Store
 .DS_Store
 server/.DS_Store
+=======
+# DS_Store
+.DS_Store
+>>>>>>> 0de86658dc39a943da115a52bf840f1ffdf2d129
 
 # Runtime data
 pids

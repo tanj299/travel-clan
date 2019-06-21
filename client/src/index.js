@@ -10,6 +10,7 @@ ReactDOM.render(
   // anything in the Provider tags (state-wise) can be accessed from the store
   
   <Provider store={store}>
+
     <App />
   </Provider>,  
   document.getElementById('root')
