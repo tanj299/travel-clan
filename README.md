@@ -1,4 +1,5 @@
 # travel-clan
+### A “Travel Buddies” application where users can create and plan Trips together with their friends.
 
 Collaborators: 
 - Anupam Das 
